@@ -105,7 +105,7 @@ section{position:relative;padding:clamp(2.6rem,6vw,4.2rem) 0}
 .jabara{
   position:absolute;left:0;right:0;bottom:0;
   height:clamp(120px,20vw,240px);
-  background-image:url('../img/jabara-omote.jpg');
+  background-image:url('../img/jabara-omote-sm.jpg');   /* モバイル軽量版 */
   background-repeat:no-repeat;
   background-position:var(--jx,0%) bottom;
   background-size:500% auto;
@@ -113,6 +113,10 @@ section{position:relative;padding:clamp(2.6rem,6vw,4.2rem) 0}
   z-index:0;pointer-events:none;
   -webkit-mask-image:linear-gradient(to top,#000 48%,transparent);
   mask-image:linear-gradient(to top,#000 48%,transparent);
+}
+/* PCは高解像度版に差し替え（引き伸ばし時の粗さ対策） */
+@media(min-width:821px){
+  .jabara{background-image:url('../img/jabara-omote.jpg')}
 }
 
 /* ---------- スクロール演出（浮き上がり） ---------- */
