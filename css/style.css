@@ -279,6 +279,7 @@ footer{background:rgba(7,25,30,.92);padding:3.2rem 24px 3.2rem;text-align:center
 .sns span{font-family:var(--font-en);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
 .footer-notice{max-width:600px;margin:0 auto 1.1rem;font-size:.7rem;line-height:1.85;letter-spacing:.03em;color:var(--cream-dim);opacity:.7}
 .copyright{font-family:var(--font-en);font-size:.72rem;letter-spacing:.18em;color:var(--cream-dim);line-height:2;opacity:.8}
+.copyright .cmark{font-family:var(--font-sans);font-size:.85em;letter-spacing:.05em}
 
 /* ---------- 動画モーダル ---------- */
 .modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .35s}
