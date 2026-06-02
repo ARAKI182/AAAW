@@ -118,6 +118,9 @@ section{position:relative;padding:clamp(2.6rem,6vw,4.2rem) 0}
 @media(min-width:821px){
   .jabara{background-image:url('../img/jabara-omote.jpg')}
 }
+/* セクション個別の微調整 */
+.hero .jabara{height:clamp(90px,13vw,160px)}   /* ヒーローは帯を低く＝位置を下げる */
+.tracks .jabara{opacity:.26}                    /* 8,9曲目と被るので暗く */
 
 /* ---------- スクロール演出（浮き上がり） ---------- */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.16,.7,.2,1),transform 1s cubic-bezier(.16,.7,.2,1)}
