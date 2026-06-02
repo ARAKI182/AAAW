@@ -184,10 +184,11 @@ nav.pc a:hover::after{width:100%}
 .release-info .title{font-family:var(--font-mincho);font-weight:700;font-size:1.3rem;letter-spacing:.08em}
 .release-info .sub{font-family:var(--font-en);letter-spacing:.22em;color:var(--gold-lt);font-size:.95rem;margin-top:.3rem}
 .spec{margin:1.2rem 0;border-top:1px solid rgba(231,207,142,.14)}
-.spec div{display:flex;justify-content:space-between;gap:1rem;padding:.46rem 0;border-bottom:1px solid rgba(231,207,142,.14);font-size:.85rem}
+.spec div{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px solid rgba(231,207,142,.14);font-size:.85rem}
 .spec .k{color:var(--cream-dim);font-family:var(--font-en);letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
 .spec .v{font-family:var(--font-mincho)}
-.x-link{display:inline-flex;align-items:center;vertical-align:middle;margin-left:.45em;color:var(--gold-lt);opacity:.7;transition:opacity .3s}
+.spec .v-link{display:inline-flex;align-items:center}
+.x-link{display:inline-flex;align-items:center;margin-left:.6em;color:var(--gold-lt);opacity:.7;transition:opacity .3s}
 .x-link:hover{opacity:1}
 .x-link svg{width:13px;height:13px;fill:currentColor}
 .price{font-family:var(--font-mincho);font-size:1.45rem;color:var(--gold-lt);letter-spacing:.06em}
@@ -231,10 +232,11 @@ nav.pc a:hover::after{width:100%}
 .track-no{font-family:var(--font-en);font-size:1.25rem;font-weight:500;color:var(--gold-lt);min-width:34px;line-height:1}
 .track-titles{flex:1;min-width:0;display:flex;flex-direction:column}
 .track-ttl{font-family:var(--font-mincho);font-weight:600;font-size:clamp(.98rem,2.5vw,1.15rem);letter-spacing:.05em}
-.track-cred{display:flex;flex-wrap:wrap;gap:.1rem 1.3rem;margin-top:.32rem}
+.track-meta-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.42rem}
+.track-cred{display:flex;flex-wrap:wrap;gap:.1rem 1.3rem;flex:1;min-width:0}
 .track-cred span{font-family:var(--font-sans);font-weight:300;font-size:.76rem;letter-spacing:.05em;color:var(--cream-dim)}
-.movie-badge{display:inline-flex;align-items:center;gap:.4em;align-self:flex-start;margin-top:.6rem;flex-shrink:0;padding:.32rem .75rem;font-family:var(--font-en);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);background:rgba(67,208,236,.1);border:1px solid rgba(67,208,236,.42);border-radius:30px;cursor:pointer;transition:background .3s,color .3s,transform .3s}
-.movie-badge:hover{background:rgba(67,208,236,.22);color:#fff;transform:translateY(-1px)}
+.movie-badge{display:inline-flex;align-items:center;gap:.4em;flex-shrink:0;padding:.32rem .75rem;font-family:var(--font-en);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);background:rgba(67,208,236,.1);border:1px solid rgba(67,208,236,.42);border-radius:30px;cursor:pointer;transition:background .3s,color .3s,box-shadow .3s}
+.movie-badge:hover{background:rgba(67,208,236,.22);color:#fff;box-shadow:0 0 16px rgba(67,208,236,.3)}
 .movie-badge svg{width:9px;height:9px;fill:currentColor}
 
 /* ---------- LIVE ---------- */

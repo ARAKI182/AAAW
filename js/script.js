@@ -31,8 +31,10 @@ tl.innerHTML = TRACKS.map((t, i) => {
       <span class="track-no">${t.no}</span>
       <div class="track-titles">
         <div class="track-ttl">${t.ja}</div>
-        <div class="track-cred">${cred.map(c => `<span>${c}</span>`).join('')}</div>
-        ${badge}
+        <div class="track-meta-row">
+          <div class="track-cred">${cred.map(c => `<span>${c}</span>`).join('')}</div>
+          ${badge}
+        </div>
       </div>
     </div>
   </div>`;
