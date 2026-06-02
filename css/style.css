@@ -108,7 +108,7 @@ section{position:relative;padding:clamp(2.6rem,6vw,4.2rem) 0}
   background-image:url('../img/jabara-omote.jpg');
   background-repeat:no-repeat;
   background-position:var(--jx,0%) bottom;
-  background-size:300% auto;
+  background-size:500% auto;
   opacity:.6;
   z-index:0;pointer-events:none;
   -webkit-mask-image:linear-gradient(to top,#000 48%,transparent);
