@@ -137,7 +137,7 @@ header{
   border-bottom:1px solid rgba(231,207,142,.12);
 }
 header .brand{display:flex;align-items:center;gap:12px}
-header .brand img{height:18px;width:auto;opacity:.95}
+header .brand img{height:30px;width:auto;opacity:.95}
 nav.pc{display:flex;gap:26px}
 nav.pc a{
   font-family:var(--font-en);font-size:.86rem;letter-spacing:.2em;text-transform:uppercase;
