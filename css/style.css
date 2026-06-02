@@ -229,11 +229,11 @@ nav.pc a:hover::after{width:100%}
 .track:hover{background:rgba(67,208,236,.04)}
 .track-head{display:flex;align-items:center;gap:14px;padding:.82rem 6px}
 .track-no{font-family:var(--font-en);font-size:1.25rem;font-weight:500;color:var(--gold-lt);min-width:34px;line-height:1}
-.track-titles{flex:1;min-width:0}
+.track-titles{flex:1;min-width:0;display:flex;flex-direction:column}
 .track-ttl{font-family:var(--font-mincho);font-weight:600;font-size:clamp(.98rem,2.5vw,1.15rem);letter-spacing:.05em}
 .track-cred{display:flex;flex-wrap:wrap;gap:.1rem 1.3rem;margin-top:.32rem}
 .track-cred span{font-family:var(--font-sans);font-weight:300;font-size:.76rem;letter-spacing:.05em;color:var(--cream-dim)}
-.movie-badge{display:inline-flex;align-items:center;gap:.4em;margin-left:auto;flex-shrink:0;padding:.32rem .75rem;font-family:var(--font-en);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);background:rgba(67,208,236,.1);border:1px solid rgba(67,208,236,.42);border-radius:30px;cursor:pointer;transition:background .3s,color .3s,transform .3s}
+.movie-badge{display:inline-flex;align-items:center;gap:.4em;align-self:flex-start;margin-top:.6rem;flex-shrink:0;padding:.32rem .75rem;font-family:var(--font-en);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);background:rgba(67,208,236,.1);border:1px solid rgba(67,208,236,.42);border-radius:30px;cursor:pointer;transition:background .3s,color .3s,transform .3s}
 .movie-badge:hover{background:rgba(67,208,236,.22);color:#fff;transform:translateY(-1px)}
 .movie-badge svg{width:9px;height:9px;fill:currentColor}
 
@@ -254,6 +254,7 @@ footer{background:rgba(7,25,30,.92);padding:3.2rem 24px 3.2rem;text-align:center
 .sns a:hover{color:var(--gold-lt);transform:translateY(-3px)}
 .sns svg{width:23px;height:23px;fill:currentColor}
 .sns span{font-family:var(--font-en);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+.footer-notice{max-width:600px;margin:0 auto 1.1rem;font-size:.7rem;line-height:1.85;letter-spacing:.03em;color:var(--cream-dim);opacity:.7}
 .copyright{font-family:var(--font-en);font-size:.72rem;letter-spacing:.18em;color:var(--cream-dim);line-height:2;opacity:.8}
 
 /* ---------- 動画モーダル ---------- */
