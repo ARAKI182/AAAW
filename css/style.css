@@ -165,7 +165,7 @@ nav.pc a:hover::after{width:100%}
 .hero-credit{z-index:2;display:flex;flex-direction:column;align-items:center;gap:.28rem;margin-top:1.5rem;font-family:var(--font-en);color:var(--gold-lt)}
 .hero-credit .nm{font-size:1.2rem;letter-spacing:.26em;line-height:1.15}
 .hero-credit .x{font-size:.9rem;opacity:.6;line-height:1}
-.hero-credit .album{margin-top:.5rem;font-size:.72rem;letter-spacing:.34em;color:var(--cream-dim);text-transform:uppercase}
+.hero-credit .album{margin-top:.5rem;font-size:.72rem;letter-spacing:.34em;color:var(--cream-dim);text-transform:uppercase;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
 .scroll-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.6rem;font-family:var(--font-en);font-size:.66rem;letter-spacing:.34em;color:var(--cream-dim);text-transform:uppercase;animation:bounce 1.5s ease-in-out infinite}
 .scroll-hint .arrow{width:8px;height:8px;border-right:1.5px solid var(--gold-lt);border-bottom:1.5px solid var(--gold-lt);transform:rotate(45deg)}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
