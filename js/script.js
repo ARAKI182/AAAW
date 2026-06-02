@@ -3,14 +3,15 @@
    ============================================================ */
 
 /* ====== 収録曲データ ====== */
+/* video: YouTube動画ID。動画が出たらここに追記すればMOVIEバッジが付く */
 const TRACKS = [
-  {no:'01', ja:'モラトリアム・ディシジョン'},
-  {no:'02', ja:'アノニマスヒーロー'},
-  {no:'03', ja:'余白を透る'},
+  {no:'01', ja:'モラトリアム・ディシジョン', video:'LYW-qOvpYWI'},
+  {no:'02', ja:'アノニマスヒーロー'},   /* 動画投稿予定 */
+  {no:'03', ja:'余白を透る'},           /* 動画投稿予定 */
   {no:'04', ja:'BlackStar'},
   {no:'05', ja:'Dead-End Dance'},
   {no:'06', ja:'Filter Bubble'},
-  {no:'07', ja:'Qualia'},
+  {no:'07', ja:'Qualia', video:'ElufWTpeXUs'},
   {no:'08', ja:'Nameless Ballade'},
   {no:'09', ja:'グッバイリメンバー'}
 ];
@@ -21,6 +22,9 @@ tl.innerHTML = TRACKS.map((t, i) => {
   const cred = t.no === '05'
     ? ['Words：ARAKI', 'Music：Narukaze', 'Arrangement：Narukaze']
     : ['Words &amp; Music：ARAKI', 'Arrangement：Narukaze'];
+  const badge = t.video
+    ? `<button class="movie-badge" data-video="${t.video}" aria-label="MOVIEを再生"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Movie</button>`
+    : '';
   return `
   <div class="track reveal" style="transition-delay:${i * 55}ms">
     <div class="track-head">
@@ -29,9 +33,32 @@ tl.innerHTML = TRACKS.map((t, i) => {
         <div class="track-ttl">${t.ja}</div>
         <div class="track-cred">${cred.map(c => `<span>${c}</span>`).join('')}</div>
       </div>
+      ${badge}
     </div>
   </div>`;
 }).join('');
+
+/* ====== 動画モーダル ====== */
+const modal = document.getElementById('videoModal');
+const modalIframe = document.getElementById('modalIframe');
+function openVideo(id) {
+  modalIframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeVideo() {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  modalIframe.src = '';
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.movie-badge').forEach(b =>
+  b.addEventListener('click', () => openVideo(b.dataset.video))
+);
+modal.querySelector('.modal-backdrop').addEventListener('click', closeVideo);
+modal.querySelector('.modal-close').addEventListener('click', closeVideo);
+addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeVideo(); });
 
 /* ====== ハンバーガーメニュー ====== */
 const burger = document.getElementById('burger');
@@ -55,14 +82,6 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-/* ====== 追従CTA（ヒーローを抜けたら表示） ====== */
-const fcta = document.getElementById('floatCta');
-const heroEl = document.getElementById('hero');
-const hio = new IntersectionObserver((entries) => {
-  entries.forEach(e => fcta.classList.toggle('show', !e.isIntersecting));
-}, { threshold: 0.05 });
-hio.observe(heroEl);
 
 /* ====== 風パーティクル ====== */
 (function () {
