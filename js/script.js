@@ -62,6 +62,15 @@ modal.querySelector('.modal-backdrop').addEventListener('click', closeVideo);
 modal.querySelector('.modal-close').addEventListener('click', closeVideo);
 addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeVideo(); });
 
+/* ====== 全曲クロスフェード（収録曲の下） ====== */
+/* ★クロスフェード動画ができたら、ここにYouTubeのIDを入れるだけでボタンが出ます（例: 'AbCdEf12345'） */
+const CROSSFADE_ID = '';
+const cfWrap = document.getElementById('crossfadeWrap');
+if (CROSSFADE_ID) {
+  cfWrap.innerHTML = `<button class="crossfade-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>全曲クロスフェードを見る</button>`;
+  cfWrap.querySelector('.crossfade-btn').addEventListener('click', () => openVideo(CROSSFADE_ID));
+}
+
 /* ====== ハンバーガーメニュー ====== */
 const burger = document.getElementById('burger');
 const mmenu = document.getElementById('mmenu');
