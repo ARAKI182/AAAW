@@ -239,7 +239,9 @@ nav.pc a:hover::after{width:100%}
 .buy-card.alt .buy-tag{color:var(--cyan)}
 .buy-ttl{font-family:var(--font-mincho);font-weight:600;font-size:1.2rem;letter-spacing:.06em;margin:.7rem 0 .5rem}
 .buy-desc{font-size:.86rem;color:var(--cream-dim);line-height:1.85;min-height:3.4em}
-.buy-bonus{display:flex;align-items:center;justify-content:center;gap:.9rem;margin:1.1rem 0;padding:.75rem;border-top:1px solid rgba(231,207,142,.14);border-bottom:1px solid rgba(231,207,142,.14)}
+.buy-bonus{display:flex;flex-direction:column;align-items:center;gap:.7rem;margin:1.1rem 0;padding:1.1rem .75rem;border-top:1px solid rgba(231,207,142,.14);border-bottom:1px solid rgba(231,207,142,.14)}
+.bonus-img{height:130px;max-width:150px;width:auto;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(0,0,0,.4))}
+.bonus-text{display:flex;align-items:center;gap:.7rem}
 .buy-bonus .bl{font-family:var(--font-en);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-lt)}
 .buy-card.alt .buy-bonus .bl{color:var(--cyan)}
 .buy-bonus .bv{font-family:var(--font-mincho);font-size:.96rem;color:var(--cream)}

@@ -9,6 +9,9 @@ Thumbs.db
 .htpasswd
 .env
 
+# 重い元素材（Web用はbonus-key.pngを使用）
+img/key.png
+
 # backups / archive
 _archive/
 *_archive_*.html
