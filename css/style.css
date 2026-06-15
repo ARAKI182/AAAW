@@ -182,6 +182,11 @@ nav.pc a:hover::after{width:100%}
 /* ガラスモーフィズム演出（フチの光沢＋内側グロー） */
 .hero-jacket::before{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.24),inset 0 0 60px rgba(67,208,236,.16)}
 .hero-jacket::after{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 28%,rgba(255,255,255,0) 70%,rgba(255,255,255,.08) 100%)}
+/* 3Dチルト（PCのみ）＋光のフレア */
+@media(pointer:fine){.hero{perspective:1000px}}
+.hero-jacket{transition:transform .25s ease-out}
+.hero-flare{position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at 58% 35%,rgba(255,248,214,.4),transparent 34%);opacity:.5;animation:flareBreathe 6s ease-in-out infinite}
+@keyframes flareBreathe{0%,100%{opacity:.28}50%{opacity:.6}}
 .hero-title{z-index:2;margin-top:2.6rem;padding:0 16px;font-family:var(--font-en);font-weight:500;font-size:clamp(1.7rem,6vw,2.9rem);letter-spacing:.2em;line-height:1.1;color:var(--cream)}
 .hero-credit{z-index:2;display:flex;flex-direction:column;align-items:center;gap:.28rem;margin-top:1.5rem;font-family:var(--font-en);color:var(--gold-lt)}
 .hero-credit .nm{font-size:1.2rem;letter-spacing:.26em;line-height:1.15}
@@ -251,6 +256,10 @@ nav.pc a:hover::after{width:100%}
 .buy-note{max-width:620px;margin:1.7rem auto 0;text-align:center;font-size:.78rem;line-height:1.85;letter-spacing:.03em;color:var(--cream-dim)}
 
 /* ---------- TRACKLIST ---------- */
+/* クオリア：曲ホバーでセクションをその曲の色にほのかに染める */
+.tracks{--qualia:transparent}
+.tracks::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(65% 75% at 50% 45%,var(--qualia),transparent 70%);opacity:0;transition:opacity .6s ease}
+.tracks.q-active::after{opacity:.2}
 .tracks-list{max-width:840px;margin:0 auto;border-top:1px solid rgba(231,207,142,.16)}
 .track{border-bottom:1px solid rgba(231,207,142,.16);transition:background .35s,opacity 1s cubic-bezier(.16,.7,.2,1),transform 1s cubic-bezier(.16,.7,.2,1)}
 .track:hover{background:rgba(67,208,236,.04)}
