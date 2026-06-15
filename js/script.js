@@ -119,12 +119,12 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* ====== 風パーティクル（カーソル/タッチに反応＋クオリア色ティント） ====== */
+/* ====== 風（フローフィールドに沿って流れる線・カーソル反応・クオリア色） ====== */
 (function () {
   if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
   const cv = document.getElementById('wind-canvas');
   const ctx = cv.getContext('2d');
-  let w, h, parts;
+  let w, h, parts, t = 0;
   const COLORS = ['#9fd9ec', '#a9e3cf', '#f0e1a0', '#f3a8c4', '#bcb0e6', '#e7cf8e'];
   const hexRgb = (x) => { x = x.replace('#', ''); return [parseInt(x.slice(0, 2), 16), parseInt(x.slice(2, 4), 16), parseInt(x.slice(4, 6), 16)]; };
 
@@ -132,40 +132,55 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   let tintTo = null, tintRgb = [0, 0, 0], tintT = 0;
   window.aawSetTint = (col) => { tintTo = col; if (col) tintRgb = hexRgb(col); };
 
-  /* カーソル/タッチで起きる風 */
+  /* カーソル/タッチで起きる突風 */
   let windX = 0, windY = 0, lastT = null;
-  const clamp = (v) => Math.max(-3, Math.min(3, v));
+  const clamp = (v) => Math.max(-3.5, Math.min(3.5, v));
   addEventListener('mousemove', (e) => { windX = clamp(windX + (e.movementX || 0) * 0.05); windY = clamp(windY + (e.movementY || 0) * 0.03); }, { passive: true });
-  addEventListener('touchmove', (e) => { const t = e.touches[0]; if (lastT) { windX = clamp(windX + (t.clientX - lastT.x) * 0.04); windY = clamp(windY + (t.clientY - lastT.y) * 0.03); } lastT = { x: t.clientX, y: t.clientY }; }, { passive: true });
+  addEventListener('touchmove', (e) => { const p = e.touches[0]; if (lastT) { windX = clamp(windX + (p.clientX - lastT.x) * 0.04); windY = clamp(windY + (p.clientY - lastT.y) * 0.03); } lastT = { x: p.clientX, y: p.clientY }; }, { passive: true });
   addEventListener('touchend', () => { lastT = null; }, { passive: true });
+
+  /* 風の流れ場（角度）— 軽量な擬似ノイズ */
+  const flow = (x, y) => (Math.sin(x * 0.0016 + t * 0.004) + Math.cos(y * 0.0021 - t * 0.005)) * 1.1 + Math.sin((x + y) * 0.001) * 0.7;
 
   function resize() { w = cv.width = innerWidth; h = cv.height = innerHeight; }
   function mk() {
     return {
       x: Math.random() * w, y: Math.random() * h,
-      r: Math.random() * 2.2 + 0.5,
-      vx: Math.random() * 0.35 + 0.12,
-      vy: (Math.random() - 0.5) * 0.25,
-      a: Math.random() * 0.5 + 0.15,
-      cr: hexRgb(COLORS[Math.floor(Math.random() * COLORS.length)]),
-      sw: Math.random() * Math.PI * 2
+      vx: Math.random() * 0.4 + 0.1, vy: (Math.random() - 0.5) * 0.3,
+      a: Math.random() * 0.3 + 0.1,
+      lw: Math.random() * 0.8 + 0.5,
+      len: Math.random() * 11 + 7,
+      cr: hexRgb(COLORS[Math.floor(Math.random() * COLORS.length)])
     };
   }
-  function init() { resize(); parts = Array.from({ length: Math.min(70, Math.floor(w / 22)) }, mk); }
+  function init() { resize(); parts = Array.from({ length: Math.min(90, Math.floor(w / 17)) }, mk); }
   function loop() {
+    t++;
     ctx.clearRect(0, 0, w, h);
     windX *= 0.95; windY *= 0.95;
     tintT += ((tintTo ? 1 : 0) - tintT) * 0.06;
+    ctx.lineCap = 'round';
     for (const p of parts) {
-      p.x += p.vx + windX; p.sw += 0.01; p.y += p.vy + windY + Math.sin(p.sw) * 0.15;
-      if (p.x > w + 10) { p.x = -10; p.y = Math.random() * h; }
-      if (p.x < -10) p.x = w + 10;
-      if (p.y > h + 10) p.y = -10;
-      if (p.y < -10) p.y = h + 10;
+      const ang = flow(p.x, p.y);
+      p.vx += Math.cos(ang) * 0.05 + 0.045 + windX * 0.015;
+      p.vy += Math.sin(ang) * 0.05 + windY * 0.015;
+      p.vx *= 0.9; p.vy *= 0.9;
+      p.x += p.vx; p.y += p.vy;
+      if (p.x > w + 24) { p.x = -24; p.y = Math.random() * h; }
+      if (p.x < -24) p.x = w + 24;
+      if (p.y > h + 24) p.y = -24;
+      if (p.y < -24) p.y = h + 24;
+      const sp = Math.hypot(p.vx, p.vy) || 0.001;
+      const L = Math.min(p.len + sp * 6, 36);
       let r = p.cr[0], g = p.cr[1], b = p.cr[2];
       if (tintT > 0.01) { r += (tintRgb[0] - r) * tintT; g += (tintRgb[1] - g) * tintT; b += (tintRgb[2] - b) * tintT; }
-      ctx.globalAlpha = p.a; ctx.fillStyle = `rgb(${r | 0},${g | 0},${b | 0})`;
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fill();
+      ctx.globalAlpha = p.a;
+      ctx.strokeStyle = `rgb(${r | 0},${g | 0},${b | 0})`;
+      ctx.lineWidth = p.lw;
+      ctx.beginPath();
+      ctx.moveTo(p.x - p.vx / sp * L, p.y - p.vy / sp * L);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
     }
     requestAnimationFrame(loop);
   }
