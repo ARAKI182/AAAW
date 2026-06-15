@@ -248,6 +248,7 @@ nav.pc a:hover::after{width:100%}
 .buy-card.alt .buy-bonus .bl{color:var(--cyan)}
 .buy-bonus .bv{font-family:var(--font-mincho);font-size:.96rem;color:var(--cream)}
 .buy-card .cta-btn{margin-top:auto}
+.buy-note{max-width:620px;margin:1.7rem auto 0;text-align:center;font-size:.78rem;line-height:1.85;letter-spacing:.03em;color:var(--cream-dim)}
 
 /* ---------- TRACKLIST ---------- */
 .tracks-list{max-width:840px;margin:0 auto;border-top:1px solid rgba(231,207,142,.16)}
@@ -280,6 +281,9 @@ nav.pc a:hover::after{width:100%}
 
 /* ---------- FOOTER ---------- */
 footer{background:rgba(7,25,30,.92);padding:3.2rem 24px 3.2rem;text-align:center;border-top:1px solid rgba(231,207,142,.14)}
+.share-btn{display:inline-flex;align-items:center;gap:.55em;margin-bottom:2.2rem;padding:.7rem 1.7rem;font-family:var(--font-sans);font-weight:500;font-size:.84rem;letter-spacing:.14em;color:var(--cream);background:rgba(255,255,255,.06);border:1px solid rgba(244,241,230,.3);border-radius:40px;transition:background .3s,border-color .3s,transform .3s}
+.share-btn:hover{background:rgba(255,255,255,.14);border-color:rgba(244,241,230,.55);transform:translateY(-2px)}
+.share-btn svg{width:15px;height:15px;fill:currentColor}
 .sns{display:flex;flex-wrap:wrap;justify-content:center;gap:2.4rem;margin-bottom:2rem}
 .sns a{display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--cream-dim);transition:color .3s,transform .3s}
 .sns a:hover{color:var(--gold-lt);transform:translateY(-3px)}

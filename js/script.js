@@ -83,6 +83,14 @@ mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   mmenu.classList.remove('open');
 }));
 
+/* ====== Xシェアボタン ====== */
+const shareBtn = document.getElementById('shareBtn');
+if (shareBtn) {
+  const shareText = 'ARAKI - ANY AND ALL WIND ／ ありとあらゆる風\n2026.07.08(水) RELEASE';
+  const shareUrl = 'https://araki-live.jp/aaaw/';
+  shareBtn.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}&hashtags=${encodeURIComponent('あらき,AnyAndAllWind')}`;
+}
+
 /* ====== スクロール演出（要素が浮き上がってくる） ====== */
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
