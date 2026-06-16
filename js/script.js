@@ -219,15 +219,14 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 })();
 
 /* ====== 入場イントロ（粒が ANY AND ALL WIND を形成→ホワイトアウト→ヒーローへ） ====== */
-/* 毎回出したい場合は下の sessionStorage 行を消す */
+/* 訪問のたびに毎回表示する */
 (function () {
   const intro = document.getElementById('intro');
   if (!intro) return;
   /* フェイルセーフ：何があっても7秒で幕を必ず外す（白幕の居座り防止） */
   setTimeout(() => { try { document.documentElement.style.overflow = ''; document.body.style.overflow = ''; } catch (e) {} const el = document.getElementById('intro'); if (el) el.remove(); }, 7000);
-  let seen = false; try { seen = !!sessionStorage.getItem('aaaw_intro'); } catch (e) {}
-  if (matchMedia('(prefers-reduced-motion:reduce)').matches || seen) { intro.remove(); return; }
-  try { sessionStorage.setItem('aaaw_intro', '1'); } catch (e) {}
+  /* 毎回表示。セッション1回だけにしたい場合は、ここで sessionStorage を見て return する処理を足す */
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) { intro.remove(); return; }
   document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden';
   const cv = document.getElementById('introCv'), ctx = cv.getContext('2d');
   const white = document.getElementById('introWhite');
