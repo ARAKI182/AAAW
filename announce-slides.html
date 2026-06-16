@@ -52,18 +52,26 @@ html,body{background:#05171c;overflow:hidden}
 .is-title{font-family:'Shippori Mincho',serif;font-weight:600;font-size:66px;letter-spacing:.08em;color:#f4f1e6;margin-bottom:50px}
 .is-note{font-family:'Shippori Mincho',serif;font-size:30px;letter-spacing:.1em;color:rgba(244,241,230,.72);margin-top:46px}
 .jk-big{width:800px;height:800px;object-fit:cover;border-radius:12px;box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 0 1px rgba(231,207,142,.3)}
-.rel-spec{display:flex;flex-direction:column;min-width:880px;font-size:37px}
-.rel-spec>div{display:flex;justify-content:space-between;gap:40px;padding:19px 8px;border-bottom:1px solid rgba(231,207,142,.2)}
-.rel-spec span{font-family:'Marcellus',serif;letter-spacing:.14em;color:#e7cf8e}
-.rel-spec b{font-family:'Shippori Mincho',serif;font-weight:500;color:#f4f1e6}
-.bonus-row{display:flex;gap:130px;align-items:flex-end;justify-content:center}
-.bonus-row figure{display:flex;flex-direction:column;align-items:center;gap:26px}
-.bonus-row img{height:310px;width:auto;object-fit:contain;filter:drop-shadow(0 12px 28px rgba(0,0,0,.5))}
-.bonus-row img.sticker{height:240px;border-radius:8px}
-.bonus-row figcaption{font-family:'Shippori Mincho',serif;font-size:33px;color:#f4f1e6}
-.tracklist{list-style:none;display:flex;flex-direction:column;gap:15px;font-family:'Shippori Mincho',serif}
-.tracklist li{font-size:41px;letter-spacing:.05em;color:#f4f1e6;display:flex;align-items:baseline;gap:28px}
-.tracklist li i{font-family:'Marcellus',serif;font-style:normal;font-size:31px;color:#e7cf8e;min-width:56px;text-align:right}
+.rel-spec{display:flex;flex-direction:column;min-width:1140px;font-size:33px}
+.rel-spec>div{display:flex;justify-content:space-between;gap:50px;padding:15px 8px;border-bottom:1px solid rgba(231,207,142,.2)}
+.rel-spec span{font-family:'Marcellus',serif;letter-spacing:.14em;color:#e7cf8e;white-space:nowrap}
+.rel-spec b{font-family:'Shippori Mincho',serif;font-weight:500;color:#f4f1e6;white-space:nowrap}
+.bonus-row{display:flex;gap:140px;align-items:flex-start;justify-content:center}
+.bonus-row figure{display:flex;flex-direction:column;align-items:center;gap:20px}
+.bonus-row .route{font-family:'Marcellus',serif;font-size:26px;letter-spacing:.28em;text-transform:uppercase;color:#e7cf8e}
+.bonus-row img{height:280px;width:auto;object-fit:contain;filter:drop-shadow(0 12px 28px rgba(0,0,0,.5))}
+.bonus-row img.sticker{height:215px;border-radius:8px}
+.bonus-row figcaption{font-family:'Shippori Mincho',serif;font-size:31px;color:#f4f1e6}
+.tracks-2col{display:flex;gap:96px;align-items:center;justify-content:center}
+.tracklist{list-style:none;display:flex;flex-direction:column;gap:14px;font-family:'Shippori Mincho',serif}
+.tracklist li{font-size:38px;letter-spacing:.05em;color:#f4f1e6;display:flex;align-items:baseline;gap:26px}
+.tracklist li i{font-family:'Marcellus',serif;font-style:normal;font-size:29px;color:#e7cf8e;min-width:52px;text-align:right}
+.credits{font-family:'Shippori Mincho',serif;font-size:33px;line-height:2;color:#f4f1e6;text-align:left}
+.credits p{margin:0}
+.credits .sub{font-size:25px;color:rgba(244,241,230,.68)}
+#whiteout{position:absolute;inset:0;z-index:25;pointer-events:none;opacity:0;transition:opacity .5s ease;
+  background:radial-gradient(circle at 50% 46%,#fffaf0,#f6ecd4 55%,#ecd9a8)}
+#whiteout.on{opacity:.96}
 .site-logo{width:560px;margin-bottom:44px;filter:drop-shadow(0 0 30px rgba(231,207,142,.4))}
 .site-url{font-family:'Marcellus',serif;font-size:66px;letter-spacing:.08em;color:#e7cf8e}
 #hint{position:absolute;left:40px;bottom:30px;z-index:40;font-family:'Marcellus',serif;
@@ -91,7 +99,8 @@ html,body{background:#05171c;overflow:hidden}
       <div><span>価格</span><b>￥3,300（税込）</b></div>
       <div><span>形態</span><b>CD（蛇腹折り歌詞カード付）</b></div>
       <div><span>収録</span><b>全9曲</b></div>
-      <div><span>予約</span><b>6/21(日)〜 ARAKI STORE</b></div>
+      <div><span>予約</span><b>6/21(日)〜 ARAKI STORE にて予約開始</b></div>
+      <div><span>会場</span><b>2026.8.10(月)〜 LIVE ARK ODYSSEY 物販でも</b></div>
     </div>
   </div>
 
@@ -99,26 +108,34 @@ html,body{background:#05171c;overflow:hidden}
     <div class="is-eyebrow">Bonus</div>
     <div class="is-title">予約・購入特典</div>
     <div class="bonus-row">
-      <figure><img src="img/bonus-key.png" alt="ジャケットアクリルキーホルダー"><figcaption>ジャケットアクリルキーホルダー</figcaption></figure>
-      <figure><img class="sticker" src="img/jacket-sm.jpg" alt="ジャケットステッカー"><figcaption>ジャケットステッカー</figcaption></figure>
+      <figure><span class="route">ARAKI STORE</span><img src="img/bonus-key.png" alt="ジャケットアクリルキーホルダー"><figcaption>ジャケットアクリルキーホルダー</figcaption></figure>
+      <figure><span class="route">ライブ会場</span><img class="sticker" src="img/jacket-sm.jpg" alt="ジャケットステッカー"><figcaption>ジャケットステッカー</figcaption></figure>
     </div>
-    <div class="is-note">6/21(日)〜 ARAKI STORE 予約・販売分に付属</div>
+    <div class="is-note">※ 各販売経路の予約・購入分に付属。数量限定、なくなり次第終了。</div>
   </div>
 
   <div class="islide" id="s-tracks">
     <div class="is-eyebrow">Tracks</div>
     <div class="is-title">収録曲 全9曲</div>
-    <ol class="tracklist">
-      <li><i>01</i> モラトリアム・ディシジョン</li>
-      <li><i>02</i> アノニマスヒーロー</li>
-      <li><i>03</i> 余白を透る</li>
-      <li><i>04</i> BlackStar</li>
-      <li><i>05</i> Dead-End Dance</li>
-      <li><i>06</i> Filter Bubble</li>
-      <li><i>07</i> Qualia</li>
-      <li><i>08</i> Nameless Ballade</li>
-      <li><i>09</i> グッバイリメンバー</li>
-    </ol>
+    <div class="tracks-2col">
+      <ol class="tracklist">
+        <li><i>01</i> モラトリアム・ディシジョン</li>
+        <li><i>02</i> アノニマスヒーロー</li>
+        <li><i>03</i> 余白を透る</li>
+        <li><i>04</i> BlackStar</li>
+        <li><i>05</i> Dead-End Dance</li>
+        <li><i>06</i> Filter Bubble</li>
+        <li><i>07</i> Qualia</li>
+        <li><i>08</i> Nameless Ballade</li>
+        <li><i>09</i> グッバイリメンバー</li>
+      </ol>
+      <div class="credits">
+        <p>Music &amp; Words：ARAKI</p>
+        <p class="sub">(M-5 Music：Narukaze)</p>
+        <p>Arrangement：Narukaze</p>
+        <p>Vocal：ARAKI</p>
+      </div>
+    </div>
   </div>
 
   <div class="islide" id="s-site">
@@ -130,6 +147,7 @@ html,body{background:#05171c;overflow:hidden}
 
   <div class="bar top"></div>
   <div class="bar bot"></div>
+  <div id="whiteout"></div>
   <div id="hint">→ 進む　／　← 戻る　／　F 全画面　／　H ヒント</div>
 </div>
 
@@ -249,18 +267,38 @@ function setLogo(my) {
   }, 1500);
 }
 
+/* ====== 情報スライド遷移（粒が集まってホワイトアウト→差し替え） ====== */
+const whiteout = document.getElementById('whiteout');
+function toSlide(id, my) {
+  ambient = false;
+  document.querySelectorAll('.islide').forEach(e => { e.style.transition = 'opacity .35s ease'; e.classList.remove('show'); });  // 現スライドを速くフェード
+  for (const p of particles) { p.tx = CX + (Math.random() - .5) * 220; p.ty = CY + (Math.random() - .5) * 200; p.st = 'active'; burst(p, 18); }  // 粒が中央へ集まる
+  flash(CX, CY, 480, 28);
+  whiteout.classList.add('on');                       // ホワイトアウト
+  setTimeout(() => {
+    if (my !== token) return;
+    const el = document.getElementById(id);
+    el.style.transition = 'opacity 1s ease'; el.classList.add('show');   // 白の下で次スライドへ
+    flash(CX, CY, 800, 42);
+    ambient = true;
+    for (const p of particles) { p.st = 'ambient'; p.vx = (Math.random() - .5) * 16; p.vy = -(Math.random() * 7 + 1); }  // 粒は飛散
+    whiteout.classList.remove('on');                  // 白が引いて新スライドが現れる
+  }, 560);
+}
+
 /* ====== ステップ適用 ====== */
 function apply(i) {
   cur = i; const my = ++token;
   document.getElementById('logo').classList.remove('show'); document.getElementById('logo').style.opacity = 0;
   document.getElementById('tagline').classList.remove('show');
   crisp.style.transition = 'opacity .5s ease, filter .5s ease'; crisp.classList.remove('show');   // 旧白文字は速く退場
-  document.querySelectorAll('.islide').forEach(el => el.classList.remove('show'));
   const s = STEPS[i];
+  if (s.type === 'slide') { toSlide(s.id, my); return; }
+  whiteout.classList.remove('on');
+  document.querySelectorAll('.islide').forEach(el => el.classList.remove('show'));
   if (s.type === 'idle') { ambient = true; for (const p of particles) { p.st = 'ambient'; p.vx = (Math.random() - .5) * 4; p.vy = -Math.random() * 2; } }
   else if (s.type === 'text') setText(s, my);
-  else if (s.type === 'logo') setLogo(my);
-  else { ambient = true; for (const p of particles) p.st = 'ambient'; document.getElementById(s.id).classList.add('show'); }
+  else setLogo(my);
 }
 
 /* ====== ループ（状態機械） ====== */
