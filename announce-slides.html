@@ -22,7 +22,7 @@ html,body{background:#05171c;overflow:hidden}
 #cv{position:absolute;inset:0;z-index:10}
 #glow{position:absolute;left:50%;top:46%;width:900px;height:900px;transform:translate(-50%,-50%);
   background:radial-gradient(circle,rgba(231,207,142,.35),transparent 62%);opacity:0;z-index:9;pointer-events:none;filter:blur(8px)}
-#crisp{position:absolute;inset:0;z-index:14;pointer-events:none;opacity:0;filter:blur(16px);transition:opacity .9s ease,filter .9s ease}
+#crisp{position:absolute;inset:0;z-index:14;pointer-events:none;opacity:0;filter:blur(18px);transition:opacity 3s ease,filter 3s ease}
 #crisp.show{opacity:1;filter:blur(0)}
 #logo{position:absolute;left:50%;top:42%;width:1080px;transform:translate(-50%,-50%) scale(.8);
   opacity:0;z-index:15;pointer-events:none;
@@ -140,13 +140,14 @@ function setText(s, my) {
     burst(p, 34);
   }
   flash(CX, CY, 520, 30);
-  setTimeout(() => {                              // 粒で描き切ってから
+  setTimeout(() => {                              // 形成＋粒テキストで余韻（2.5秒形成＋2秒ホールド）
     if (my !== token) return;
     drawCrisp(s.text, font);                      // 同座標で整列した白文字を描き
-    crisp.classList.add('show');                  // ぼやけてクロスフェードで結晶化
+    crisp.style.transition = 'opacity 3s ease, filter 3s ease';  // 3秒かけて
+    crisp.classList.add('show');                  // かなりゆっくり浮かび上がる
     ambient = true;                               // 粒は薄い漂いへ解き放つ
     for (const p of particles) p.active = false;
-  }, 1700);
+  }, 4500);
 }
 function setLogo(my) {
   ambient = false;
@@ -166,6 +167,7 @@ function apply(i) {
   cur = i; const my = ++token;
   document.getElementById('logo').classList.remove('show'); document.getElementById('logo').style.opacity = 0;
   document.getElementById('tagline').classList.remove('show');
+  crisp.style.transition = 'opacity .5s ease, filter .5s ease';  // 古い白文字は速く消す
   crisp.classList.remove('show');
   if (STEPS[i].type === 'idle') { ambient = true; for (const p of particles) { p.active = false; burst(p, 5); } }
   else if (STEPS[i].type === 'text') setText(STEPS[i], my);
