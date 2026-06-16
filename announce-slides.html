@@ -22,11 +22,8 @@ html,body{background:#05171c;overflow:hidden}
 #cv{position:absolute;inset:0;z-index:10}
 #glow{position:absolute;left:50%;top:46%;width:900px;height:900px;transform:translate(-50%,-50%);
   background:radial-gradient(circle,rgba(231,207,142,.35),transparent 62%);opacity:0;z-index:9;pointer-events:none;filter:blur(8px)}
-#bigtext{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:14;
-  color:#f6f2e6;white-space:nowrap;line-height:1;opacity:0;transition:opacity 1.1s ease;
-  text-shadow:0 0 3px rgba(5,21,26,.95),0 0 22px rgba(5,21,26,.9),0 0 48px rgba(231,207,142,.45);
-  -webkit-text-stroke:.7px rgba(5,21,26,.45)}
-#bigtext.show{opacity:1}
+#crisp{position:absolute;inset:0;z-index:14;pointer-events:none;opacity:0;filter:blur(16px);transition:opacity .9s ease,filter .9s ease}
+#crisp.show{opacity:1;filter:blur(0)}
 #logo{position:absolute;left:50%;top:42%;width:1080px;transform:translate(-50%,-50%) scale(.8);
   opacity:0;z-index:15;pointer-events:none;
   filter:blur(34px) drop-shadow(0 0 40px rgba(231,207,142,.55));will-change:transform,opacity,filter}
@@ -50,7 +47,7 @@ html,body{background:#05171c;overflow:hidden}
 <div id="stage">
   <canvas id="cv" width="1920" height="1080"></canvas>
   <div id="glow"></div>
-  <div id="bigtext"></div>
+  <canvas id="crisp" width="1920" height="1080"></canvas>
   <img id="logo" src="img/logo-color.png" alt="ANY AND ALL WIND">
   <div id="tagline">2026.07.08（wed）Release<br>ARAKI × Narukaze<br>9 TRACKS EP ALBUM</div>
   <div class="bar top"></div>
@@ -124,9 +121,16 @@ function shuffle(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = (Ma
 function burst(p, amt) { p.vx += (Math.random() - .5) * amt; p.vy += (Math.random() - .5) * amt; }
 function flash(x, y, r, life) { flashes.push({ x, y, r, age: 0, life }); }
 
-const bigtext = document.getElementById('bigtext');
+const crisp = document.getElementById('crisp'), cctx = crisp.getContext('2d');
+function drawCrisp(text, font) {
+  cctx.clearRect(0, 0, 1920, 1080);
+  cctx.textAlign = 'center'; cctx.textBaseline = 'middle'; cctx.font = font; cctx.lineJoin = 'round';
+  cctx.lineWidth = 9; cctx.strokeStyle = 'rgba(5,21,26,.5)'; cctx.strokeText(text, CX, CY);
+  cctx.fillStyle = '#f6f2e6'; cctx.fillText(text, CX, CY);
+}
 function setText(s, my) {
   ambient = false;
+  crisp.classList.remove('show');               // 前の白文字をぼかして消す（内容は残したまま）
   const font = fitFont(s.text, s.font);
   const pts = sampleText(s.text, font);
   const idx = particles.map((_, i) => i); shuffle(idx);
@@ -136,8 +140,13 @@ function setText(s, my) {
     burst(p, 34);
   }
   flash(CX, CY, 520, 30);
-  bigtext.style.font = font; bigtext.textContent = s.text;
-  setTimeout(() => { if (my === token) bigtext.classList.add('show'); }, 1500);
+  setTimeout(() => {                              // 粒で描き切ってから
+    if (my !== token) return;
+    drawCrisp(s.text, font);                      // 同座標で整列した白文字を描き
+    crisp.classList.add('show');                  // ぼやけてクロスフェードで結晶化
+    ambient = true;                               // 粒は薄い漂いへ解き放つ
+    for (const p of particles) p.active = false;
+  }, 1700);
 }
 function setLogo(my) {
   ambient = false;
@@ -157,7 +166,7 @@ function apply(i) {
   cur = i; const my = ++token;
   document.getElementById('logo').classList.remove('show'); document.getElementById('logo').style.opacity = 0;
   document.getElementById('tagline').classList.remove('show');
-  bigtext.classList.remove('show');
+  crisp.classList.remove('show');
   if (STEPS[i].type === 'idle') { ambient = true; for (const p of particles) { p.active = false; burst(p, 5); } }
   else if (STEPS[i].type === 'text') setText(STEPS[i], my);
   else setLogo(my);
