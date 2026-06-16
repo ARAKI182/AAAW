@@ -253,7 +253,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   function init() {
     let pts = sample(); pts.sort((a, b) => a.x - b.x);
     const minX = pts.length ? pts[0].x : 0, maxX = pts.length ? pts[pts.length - 1].x : 1, span = Math.max(1, maxX - minX);
-    const SPREAD = 78, Np = Math.min(2900, pts.length + 350);
+    const SPREAD = 60, Np = Math.min(2900, pts.length + 350);
     parts = [];
     for (let i = 0; i < Np; i++) {
       const tp = i < pts.length ? pts[i] : null;
@@ -270,7 +270,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     t++;
     ctx.fillStyle = 'rgba(8,26,31,0.3)'; ctx.fillRect(0, 0, W, H);
     for (const p of parts) {
-      if (p.st === 'active') { p.vx += (p.tx - p.x) * .006; p.vy += (p.ty - p.y) * .006; p.vx *= .9; p.vy *= .9; p.x += p.vx; p.y += p.vy; p.a += (p.baseA - p.a) * .07; }
+      if (p.st === 'active') { p.vx += (p.tx - p.x) * .009; p.vy += (p.ty - p.y) * .009; p.vx *= .88; p.vy *= .88; p.x += p.vx; p.y += p.vy; p.a += (p.baseA - p.a) * .08; }
       else if (p.st === 'wait') { if (p.timer > 0) { p.timer--; p.x += p.vx * .25; p.y += p.vy * .25; p.vx *= .96; p.vy *= .96; p.a += (p.baseA * .4 - p.a) * .05; } else p.st = 'active'; }
       else { p.vy += .02; p.vx *= .97; p.x += p.vx; p.y += p.vy; p.a += (0 - p.a) * .05; }
       if (p.a < .012) continue;
@@ -301,8 +301,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   function start() {
     if (finished) return;
     init(); loop();
-    setTimeout(() => { if (!finished) { white.classList.add('on'); flash(W / 2, H * 0.46, Math.max(W, H) * 0.55, 38); } }, 2300);
-    setTimeout(() => { finish(false); }, 2780);
+    setTimeout(() => { if (!finished) { white.classList.add('on'); flash(W / 2, H * 0.46, Math.max(W, H) * 0.55, 38); } }, 3100);
+    setTimeout(() => { finish(false); }, 3600);
   }
   document.fonts.load("500 140px 'Cormorant Garamond'").then(start).catch(start);
   setTimeout(() => { if (!parts.length && !finished) start(); }, 1200);
