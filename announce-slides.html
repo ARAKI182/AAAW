@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ANY AND ALL WIND — 配信告知スライド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#05171c;overflow:hidden}
+#stage{
+  position:relative;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;
+  background:
+    radial-gradient(60% 50% at 50% 46%, rgba(231,207,142,.10), transparent 60%),
+    radial-gradient(120% 90% at 70% -10%, rgba(67,208,236,.10), transparent 55%),
+    linear-gradient(180deg,#0c2f37 0%,#082026 55%,#05151a 100%);
+}
+#stage::before{content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 360px 60px rgba(0,0,0,.55)}
+.bar{position:absolute;left:0;right:0;height:66px;background:#000;z-index:30}
+.bar.top{top:0}.bar.bot{bottom:0}
+#cv{position:absolute;inset:0;z-index:10}
+#glow{position:absolute;left:50%;top:46%;width:900px;height:900px;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(231,207,142,.35),transparent 62%);opacity:0;z-index:9;pointer-events:none;filter:blur(8px)}
+#logo{position:absolute;left:50%;top:44%;width:1180px;transform:translate(-50%,-50%) scale(.78);
+  opacity:0;z-index:15;pointer-events:none;
+  filter:blur(34px) drop-shadow(0 0 36px rgba(231,207,142,.5));will-change:transform,opacity,filter}
+#logo.show{animation:logoIn 1.5s cubic-bezier(.16,.7,.2,1) forwards}
+@keyframes logoIn{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.8);filter:blur(34px) drop-shadow(0 0 36px rgba(231,207,142,.5))}
+  55%{opacity:1}
+  100%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:blur(0) drop-shadow(0 0 54px rgba(231,207,142,.5))}
+}
+#tagline{position:absolute;left:50%;top:67%;transform:translate(-50%,-50%);z-index:15;
+  font-family:'Shippori Mincho',serif;font-weight:600;font-size:40px;letter-spacing:.5em;
+  color:rgba(244,241,230,.85);opacity:0;transition:opacity 1.1s ease;white-space:nowrap}
+#tagline.show{opacity:1}
+#dots{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:40;display:flex;gap:18px}
+#dots b{width:11px;height:11px;border-radius:50%;background:rgba(231,207,142,.25);cursor:pointer;transition:.3s;display:block}
+#dots b.on{background:#e7cf8e;transform:scale(1.25);box-shadow:0 0 14px rgba(231,207,142,.7)}
+#hint{position:absolute;left:40px;bottom:30px;z-index:40;font-family:'Cormorant Garamond',serif;
+  font-size:26px;letter-spacing:.12em;color:rgba(244,241,230,.45);transition:opacity .4s}
+#hint.hide{opacity:0}
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="cv" width="1920" height="1080"></canvas>
+  <div id="glow"></div>
+  <img id="logo" src="img/logo-white1.png" alt="ANY AND ALL WIND">
+  <div id="tagline">ありとあらゆる風</div>
+  <div class="bar top"></div>
+  <div class="bar bot"></div>
+  <div id="dots"></div>
+  <div id="hint">→ 進む　／　← 戻る　／　F 全画面　／　H ヒント</div>
+</div>
+
+<script>
+/* ====== 固定キャンバス自動フィット ====== */
+const stage = document.getElementById('stage');
+function fit() {
+  const sc = Math.min(innerWidth / 1920, innerHeight / 1080);
+  stage.style.transform = 'scale(' + sc + ')';
+  stage.style.marginLeft = ((innerWidth - 1920 * sc) / 2) + 'px';
+  stage.style.marginTop = ((innerHeight - 1080 * sc) / 2) + 'px';
+}
+addEventListener('resize', fit); fit();
+
+/* ====== ステップ定義 ====== */
+const CX = 960, CY = 1080 * 0.46;
+const STEPS = [
+  { type: 'idle' },
+  { type: 'text', text: '重大告知', font: "700 230px 'Shippori Mincho'" },
+  { type: 'text', text: '2026.07.08 (wed)', font: "500 180px 'Cormorant Garamond'" },
+  { type: 'text', text: 'ARAKI × Narukaze', font: "500 158px 'Cormorant Garamond'" },
+  { type: 'text', text: '新作EPアルバム', font: "700 205px 'Shippori Mincho'" },
+  { type: 'logo' }
+];
+
+/* ====== パーティクル ====== */
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const oc = document.createElement('canvas'); oc.width = 1920; oc.height = 1080;
+const octx = oc.getContext('2d', { willReadFrequently: true });
+const N = 2300;
+const HEX = ['#f4f1e6', '#e7cf8e', '#e7cf8e', '#c9a24a', '#f0e1a0', '#f3a8c4', '#a9e3cf', '#bcb0e6', '#9fd9ec', '#43d0ec'];
+const rgb = (h) => { h = h.replace('#', ''); return parseInt(h.slice(0, 2), 16) + ',' + parseInt(h.slice(2, 4), 16) + ',' + parseInt(h.slice(4, 6), 16); };
+const COLS = HEX.map(rgb);
+let particles = [], ambient = true, t = 0, flashes = [];
+
+function initParticles() {
+  particles = [];
+  for (let i = 0; i < N; i++) {
+    particles.push({
+      x: Math.random() * 1920, y: Math.random() * 1080,
+      vx: (Math.random() - .5) * .6, vy: -Math.random() * .8 - .2,
+      tx: 0, ty: 0, active: false,
+      a: 0, baseA: Math.random() * .5 + .45,
+      sz: Math.random() * 1.4 + 1.1,
+      col: COLS[(Math.random() * COLS.length) | 0],
+      tw: Math.random() * .06 + .02
+    });
+  }
+}
+
+function sampleText(text, font) {
+  octx.clearRect(0, 0, 1920, 1080);
+  octx.fillStyle = '#fff'; octx.textAlign = 'center'; octx.textBaseline = 'middle';
+  octx.font = font;
+  let m = octx.measureText(text).width;
+  if (m > 1560) { const px = parseInt(font.match(/(\d+)px/)[1]); octx.font = font.replace(/\d+px/, Math.floor(px * 1560 / m) + 'px'); }
+  octx.fillText(text, CX, CY);
+  const d = octx.getImageData(0, 0, 1920, 1080).data;
+  let pts = [], step = 6;
+  for (let y = 0; y < 1080; y += step) for (let x = 0; x < 1920; x += step) if (d[(y * 1920 + x) * 4 + 3] > 120) pts.push({ x, y });
+  while (pts.length > N * 0.9) { const f = []; for (let i = 0; i < pts.length; i += 2) f.push(pts[i]); pts = f; }
+  return pts;
+}
+
+function shuffle(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0;[arr[i], arr[j]] = [arr[j], arr[i]]; } }
+
+function burst(p, amt) { p.vx += (Math.random() - .5) * amt; p.vy += (Math.random() - .5) * amt; }
+
+function flash(x, y, r, life) { flashes.push({ x, y, r, age: 0, life }); }
+
+function setText(text, font) {
+  ambient = false;
+  const pts = sampleText(text, font);
+  const idx = particles.map((_, i) => i); shuffle(idx);
+  for (let k = 0; k < particles.length; k++) {
+    const p = particles[idx[k]];
+    if (k < pts.length) { p.tx = pts[k].x; p.ty = pts[k].y; p.active = true; }
+    else p.active = false;
+    burst(p, 30);
+  }
+  flash(CX, CY, 520, 26);
+}
+
+let token = 0;
+function setLogo() {
+  ambient = false;
+  for (const p of particles) { p.tx = CX + (Math.random() - .5) * 240; p.ty = CY + (Math.random() - .5) * 110; p.active = true; burst(p, 24); }
+  flash(CX, CY, 360, 24);
+  const my = ++token;
+  setTimeout(() => {
+    if (my !== token) return;
+    flash(CX, CY, 760, 40);
+    const lg = document.getElementById('logo'); lg.classList.remove('show'); void lg.offsetWidth; lg.classList.add('show');
+    setTimeout(() => { if (my === token) document.getElementById('tagline').classList.add('show'); }, 900);
+    for (const p of particles) { p.active = false; p.vx += (Math.random() - .5) * 34; p.vy += (Math.random() - .5) * 34 - 7; }
+  }, 880);
+}
+
+/* ====== ステップ適用 ====== */
+let cur = 0;
+function apply(i) {
+  cur = i; token++;
+  const lg = document.getElementById('logo'), tag = document.getElementById('tagline');
+  if (STEPS[i].type !== 'logo') { lg.classList.remove('show'); lg.style.opacity = 0; tag.classList.remove('show'); }
+  if (STEPS[i].type === 'idle') { ambient = true; for (const p of particles) { p.active = false; burst(p, 8); } }
+  else if (STEPS[i].type === 'text') setText(STEPS[i].text, STEPS[i].font);
+  else setLogo();
+  updateDots();
+}
+
+/* ====== ループ ====== */
+function loop() {
+  t++;
+  ctx.fillStyle = 'rgba(7,26,31,0.30)';
+  ctx.fillRect(0, 0, 1920, 1080);
+  for (const p of particles) {
+    if (p.active) {
+      p.vx += (p.tx - p.x) * 0.012; p.vy += (p.ty - p.y) * 0.012;
+      p.vx *= 0.86; p.vy *= 0.86; p.x += p.vx; p.y += p.vy;
+      p.a += (p.baseA - p.a) * 0.08;
+    } else if (ambient) {
+      p.vy -= 0.012; p.vx *= 0.99; p.x += p.vx + Math.sin((p.y + t) * 0.008) * .25; p.y += p.vy;
+      p.a += (p.baseA * 0.5 - p.a) * 0.04;
+      if (p.y < -30) { p.x = Math.random() * 1920; p.y = 1110 + Math.random() * 40; p.vx = (Math.random() - .5) * .5; p.vy = -Math.random() * .7 - .2; }
+    } else {
+      p.vy += 0.02; p.vx *= 0.97; p.x += p.vx; p.y += p.vy;
+      p.a += (0 - p.a) * 0.05;
+    }
+    if (p.a < 0.012) continue;
+    const tw = p.a * (0.62 + 0.38 * Math.sin(t * p.tw + p.x * 0.01));
+    ctx.fillStyle = 'rgba(' + p.col + ',' + tw + ')';
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.sz, 0, 7); ctx.fill();
+  }
+  ctx.globalCompositeOperation = 'lighter';
+  for (let i = flashes.length - 1; i >= 0; i--) {
+    const f = flashes[i]; f.age++;
+    const pr = f.age / f.life; if (pr >= 1) { flashes.splice(i, 1); continue; }
+    const r = (1 - Math.pow(1 - pr, 2)) * f.r, al = (1 - pr) * 0.8;
+    const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, r);
+    g.addColorStop(0, 'rgba(255,250,228,' + al + ')');
+    g.addColorStop(0.4, 'rgba(231,207,142,' + (al * 0.5) + ')');
+    g.addColorStop(1, 'rgba(231,207,142,0)');
+    ctx.fillStyle = g; ctx.fillRect(f.x - r, f.y - r, r * 2, r * 2);
+  }
+  ctx.globalCompositeOperation = 'source-over';
+  const gl = document.getElementById('glow');
+  gl.style.opacity = Math.min(0.9, flashes.reduce((s, f) => s + (1 - f.age / f.life), 0) * 0.5);
+  requestAnimationFrame(loop);
+}
+
+/* ====== 下部ドット ====== */
+const dotsEl = document.getElementById('dots');
+STEPS.forEach((_, i) => { const b = document.createElement('b'); b.onclick = () => apply(i); dotsEl.appendChild(b); });
+function updateDots() { [...dotsEl.children].forEach((b, i) => b.classList.toggle('on', i === cur)); }
+
+/* ====== キーボード ====== */
+const hint = document.getElementById('hint');
+addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if (cur < STEPS.length - 1) apply(cur + 1); hint.classList.add('hide'); }
+  else if (e.key === 'ArrowLeft') { e.preventDefault(); if (cur > 0) apply(cur - 1); }
+  else if (e.key.toLowerCase() === 'f') { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
+  else if (e.key.toLowerCase() === 'h') { hint.classList.toggle('hide'); }
+});
+
+/* ====== 起動（フォント読込後にサンプリング精度を担保） ====== */
+function start() { initParticles(); updateDots(); loop(); }
+Promise.all([
+  document.fonts.load("700 230px 'Shippori Mincho'"),
+  document.fonts.load("500 180px 'Cormorant Garamond'")
+]).then(start).catch(start);
+setTimeout(() => { if (!particles.length) start(); }, 1500);
+</script>
+</body>
+</html>
