@@ -145,8 +145,8 @@ function setText(s, my) {
     drawCrisp(s.text, font);                      // 同座標で整列した白文字を描き
     crisp.style.transition = 'opacity 3s ease, filter 3s ease';  // 3秒かけて
     crisp.classList.add('show');                  // かなりゆっくり浮かび上がる
-    ambient = true;                               // 粒は薄い漂いへ解き放つ
-    for (const p of particles) p.active = false;
+    ambient = true;                               // 粒はバラけて飛び去り、薄い漂いへ
+    for (const p of particles) { p.active = false; p.vx = (Math.random() - .5) * 12; p.vy = -(Math.random() * 6 + 1); }
   }, 4500);
 }
 function setLogo(my) {
