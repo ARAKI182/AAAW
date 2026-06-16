@@ -245,15 +245,15 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     if (mw > W * 0.84) { fs = Math.floor(fs * W * 0.84 / mw); setF(fs); }
     const lh = fs * 1.08, y0 = H * 0.46 - (lines.length - 1) * lh / 2;
     lines.forEach((L, i) => octx.fillText(L, W / 2, y0 + i * lh));
-    const d = octx.getImageData(0, 0, W, H).data; let pts = [], step = 3;
+    const d = octx.getImageData(0, 0, W, H).data; let pts = [], step = 2;
     for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) if (d[(y * W + x) * 4 + 3] > 120) pts.push({ x, y });
-    while (pts.length > 2600) { const f = []; for (let i = 0; i < pts.length; i += 2) f.push(pts[i]); pts = f; }
+    while (pts.length > 4000) { const f = []; for (let i = 0; i < pts.length; i += 2) f.push(pts[i]); pts = f; }
     return pts;
   }
   function init() {
     let pts = sample(); pts.sort((a, b) => a.x - b.x);
     const minX = pts.length ? pts[0].x : 0, maxX = pts.length ? pts[pts.length - 1].x : 1, span = Math.max(1, maxX - minX);
-    const SPREAD = 60, Np = Math.min(2900, pts.length + 350);
+    const SPREAD = 45, Np = Math.min(4500, pts.length + 400);
     parts = [];
     for (let i = 0; i < Np; i++) {
       const tp = i < pts.length ? pts[i] : null;
@@ -270,7 +270,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     t++;
     ctx.fillStyle = 'rgba(8,26,31,0.3)'; ctx.fillRect(0, 0, W, H);
     for (const p of parts) {
-      if (p.st === 'active') { p.vx += (p.tx - p.x) * .009; p.vy += (p.ty - p.y) * .009; p.vx *= .88; p.vy *= .88; p.x += p.vx; p.y += p.vy; p.a += (p.baseA - p.a) * .08; }
+      if (p.st === 'active') { p.vx += (p.tx - p.x) * .013; p.vy += (p.ty - p.y) * .013; p.vx *= .86; p.vy *= .86; p.x += p.vx; p.y += p.vy; p.a += (p.baseA - p.a) * .09; }
       else if (p.st === 'wait') { if (p.timer > 0) { p.timer--; p.x += p.vx * .25; p.y += p.vy * .25; p.vx *= .96; p.vy *= .96; p.a += (p.baseA * .4 - p.a) * .05; } else p.st = 'active'; }
       else { p.vy += .02; p.vx *= .97; p.x += p.vx; p.y += p.vy; p.a += (0 - p.a) * .05; }
       if (p.a < .012) continue;
@@ -301,8 +301,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   function start() {
     if (finished) return;
     init(); loop();
-    setTimeout(() => { if (!finished) { white.classList.add('on'); flash(W / 2, H * 0.46, Math.max(W, H) * 0.55, 38); } }, 3100);
-    setTimeout(() => { finish(false); }, 3600);
+    setTimeout(() => { if (!finished) { white.classList.add('on'); flash(W / 2, H * 0.46, Math.max(W, H) * 0.55, 38); } }, 2700);
+    setTimeout(() => { finish(false); }, 3200);
   }
   document.fonts.load("500 140px 'Cormorant Garamond'").then(start).catch(start);
   setTimeout(() => { if (!parts.length && !finished) start(); }, 1200);
