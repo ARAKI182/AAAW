@@ -217,3 +217,95 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   });
   hero.addEventListener('mouseleave', () => { jk.style.transform = ''; });
 })();
+
+/* ====== 入場イントロ（粒が ANY AND ALL WIND を形成→ホワイトアウト→ヒーローへ） ====== */
+/* 毎回出したい場合は下の sessionStorage 行を消す */
+(function () {
+  const intro = document.getElementById('intro');
+  if (!intro) return;
+  /* フェイルセーフ：何があっても7秒で幕を必ず外す（白幕の居座り防止） */
+  setTimeout(() => { try { document.documentElement.style.overflow = ''; document.body.style.overflow = ''; } catch (e) {} const el = document.getElementById('intro'); if (el) el.remove(); }, 7000);
+  let seen = false; try { seen = !!sessionStorage.getItem('aaaw_intro'); } catch (e) {}
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches || seen) { intro.remove(); return; }
+  try { sessionStorage.setItem('aaaw_intro', '1'); } catch (e) {}
+  document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden';
+  const cv = document.getElementById('introCv'), ctx = cv.getContext('2d');
+  const white = document.getElementById('introWhite');
+  const oc = document.createElement('canvas'), octx = oc.getContext('2d', { willReadFrequently: true });
+  const COLS = ['244,241,230', '231,207,142', '231,207,142', '201,162,74', '240,225,160', '243,168,196', '169,227,207', '188,176,230', '159,217,236', '67,208,236'];
+  let W, H, t = 0, parts = [], flashes = [], finished = false, raf = 0;
+  function size() { W = cv.width = innerWidth; H = cv.height = innerHeight; } size(); addEventListener('resize', size);
+
+  function sample() {
+    oc.width = W; oc.height = H; octx.clearRect(0, 0, W, H);
+    octx.fillStyle = '#fff'; octx.textAlign = 'center'; octx.textBaseline = 'middle';
+    const setF = (s) => octx.font = "500 " + s + "px 'Cormorant Garamond'";
+    const lines = W < 760 ? ['ANY AND', 'ALL WIND'] : ['ANY AND ALL WIND'];   // 狭い画面は2行にして大きく
+    let fs = Math.min(W * 0.16, H * 0.2);
+    setF(fs); let mw = 0; for (const L of lines) mw = Math.max(mw, octx.measureText(L).width);
+    if (mw > W * 0.84) { fs = Math.floor(fs * W * 0.84 / mw); setF(fs); }
+    const lh = fs * 1.08, y0 = H * 0.46 - (lines.length - 1) * lh / 2;
+    lines.forEach((L, i) => octx.fillText(L, W / 2, y0 + i * lh));
+    const d = octx.getImageData(0, 0, W, H).data; let pts = [], step = 3;
+    for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) if (d[(y * W + x) * 4 + 3] > 120) pts.push({ x, y });
+    while (pts.length > 2600) { const f = []; for (let i = 0; i < pts.length; i += 2) f.push(pts[i]); pts = f; }
+    return pts;
+  }
+  function init() {
+    let pts = sample(); pts.sort((a, b) => a.x - b.x);
+    const minX = pts.length ? pts[0].x : 0, maxX = pts.length ? pts[pts.length - 1].x : 1, span = Math.max(1, maxX - minX);
+    const SPREAD = 78, Np = Math.min(2900, pts.length + 350);
+    parts = [];
+    for (let i = 0; i < Np; i++) {
+      const tp = i < pts.length ? pts[i] : null;
+      parts.push({
+        x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * 2, vy: (Math.random() - .5) * 2,
+        tx: tp ? tp.x : W / 2, ty: tp ? tp.y : H / 2, timer: tp ? Math.round((tp.x - minX) / span * SPREAD) : 0,
+        st: tp ? 'wait' : 'fade', a: 0, baseA: Math.random() * .4 + .55, sz: Math.random() * 1.4 + 1.1,
+        col: COLS[(Math.random() * COLS.length) | 0], tw: Math.random() * .02 + .008
+      });
+    }
+  }
+  function flash(x, y, r, life) { flashes.push({ x, y, r, age: 0, life }); }
+  function loop() {
+    t++;
+    ctx.fillStyle = 'rgba(8,26,31,0.3)'; ctx.fillRect(0, 0, W, H);
+    for (const p of parts) {
+      if (p.st === 'active') { p.vx += (p.tx - p.x) * .006; p.vy += (p.ty - p.y) * .006; p.vx *= .9; p.vy *= .9; p.x += p.vx; p.y += p.vy; p.a += (p.baseA - p.a) * .07; }
+      else if (p.st === 'wait') { if (p.timer > 0) { p.timer--; p.x += p.vx * .25; p.y += p.vy * .25; p.vx *= .96; p.vy *= .96; p.a += (p.baseA * .4 - p.a) * .05; } else p.st = 'active'; }
+      else { p.vy += .02; p.vx *= .97; p.x += p.vx; p.y += p.vy; p.a += (0 - p.a) * .05; }
+      if (p.a < .012) continue;
+      ctx.globalAlpha = p.a * (0.8 + 0.2 * Math.sin(t * p.tw + p.x * .01));
+      ctx.fillStyle = 'rgb(' + p.col + ')';
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.sz, 0, 7); ctx.fill();
+    }
+    ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'lighter';
+    for (let i = flashes.length - 1; i >= 0; i--) {
+      const f = flashes[i]; f.age++; const pr = f.age / f.life; if (pr >= 1) { flashes.splice(i, 1); continue; }
+      const r = (1 - Math.pow(1 - pr, 2)) * f.r, al = (1 - pr) * .8;
+      const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, r);
+      g.addColorStop(0, 'rgba(255,250,228,' + al + ')'); g.addColorStop(.4, 'rgba(231,207,142,' + (al * .5) + ')'); g.addColorStop(1, 'rgba(231,207,142,0)');
+      ctx.fillStyle = g; ctx.fillRect(f.x - r, f.y - r, r * 2, r * 2);
+    }
+    ctx.globalCompositeOperation = 'source-over';
+    raf = requestAnimationFrame(loop);
+  }
+  function finish(fast) {
+    if (finished) return; finished = true;
+    white.classList.remove('on');
+    intro.style.transition = fast ? 'opacity .55s ease' : 'opacity 1s ease';
+    intro.classList.add('done');
+    for (const p of parts) { p.st = 'fade'; p.vx = (Math.random() - .5) * 16; p.vy = -(Math.random() * 7 + 1); }
+    document.documentElement.style.overflow = ''; document.body.style.overflow = '';
+    setTimeout(() => { cancelAnimationFrame(raf); intro.remove(); }, fast ? 650 : 1100);
+  }
+  function start() {
+    if (finished) return;
+    init(); loop();
+    setTimeout(() => { if (!finished) { white.classList.add('on'); flash(W / 2, H * 0.46, Math.max(W, H) * 0.55, 38); } }, 2300);
+    setTimeout(() => { finish(false); }, 2780);
+  }
+  document.fonts.load("500 140px 'Cormorant Garamond'").then(start).catch(start);
+  setTimeout(() => { if (!parts.length && !finished) start(); }, 1200);
+  ['click', 'touchstart', 'keydown', 'wheel'].forEach(ev => addEventListener(ev, () => finish(true), { once: true, passive: true }));
+})();

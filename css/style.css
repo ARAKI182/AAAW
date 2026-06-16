@@ -68,6 +68,15 @@ a{color:inherit;text-decoration:none}
 /* 漂うパーティクル（風） */
 #wind-canvas{position:fixed;inset:0;z-index:-1;pointer-events:none}
 
+/* 入場イントロ */
+#intro{position:fixed;inset:0;z-index:9999;opacity:1;transition:opacity 1s ease;
+  background:radial-gradient(60% 50% at 50% 46%,rgba(231,207,142,.10),transparent 60%),linear-gradient(180deg,#0c2f37 0%,#06191f 100%)}
+#intro.done{opacity:0;pointer-events:none}
+#introCv{position:absolute;inset:0;width:100%;height:100%}
+#introWhite{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .45s ease;
+  background:radial-gradient(circle at 50% 46%,#fffaf0,#f1e6cb 58%,#e7cf8e)}
+#introWhite.on{opacity:.95}
+
 /* ---------- 共通パーツ ---------- */
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
 .eyebrow{
