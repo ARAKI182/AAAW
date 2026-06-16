@@ -39,6 +39,33 @@ html,body{background:#05171c;overflow:hidden}
   color:rgba(244,241,230,.9);opacity:0;transition:opacity 1.2s ease;white-space:nowrap;
   text-shadow:0 0 18px rgba(5,21,26,.8)}
 #tagline.show{opacity:1}
+/* ====== 続きの情報スライド ====== */
+.islide{position:absolute;inset:0;z-index:16;opacity:0;pointer-events:none;transition:opacity 1s ease;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 90px}
+.islide.show{opacity:1}
+.islide>*{transform:translateY(24px);opacity:0;transition:transform 1s cubic-bezier(.16,.7,.2,1),opacity 1s ease}
+.islide.show>*{transform:none;opacity:1}
+.islide.show>*:nth-child(2){transition-delay:.12s}
+.islide.show>*:nth-child(3){transition-delay:.24s}
+.islide.show>*:nth-child(4){transition-delay:.36s}
+.is-eyebrow{font-family:'Marcellus',serif;font-size:27px;letter-spacing:.5em;text-transform:uppercase;color:#e7cf8e;margin-bottom:26px}
+.is-title{font-family:'Shippori Mincho',serif;font-weight:600;font-size:66px;letter-spacing:.08em;color:#f4f1e6;margin-bottom:50px}
+.is-note{font-family:'Shippori Mincho',serif;font-size:30px;letter-spacing:.1em;color:rgba(244,241,230,.72);margin-top:46px}
+.jk-big{width:800px;height:800px;object-fit:cover;border-radius:12px;box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 0 1px rgba(231,207,142,.3)}
+.rel-spec{display:flex;flex-direction:column;min-width:880px;font-size:37px}
+.rel-spec>div{display:flex;justify-content:space-between;gap:40px;padding:19px 8px;border-bottom:1px solid rgba(231,207,142,.2)}
+.rel-spec span{font-family:'Marcellus',serif;letter-spacing:.14em;color:#e7cf8e}
+.rel-spec b{font-family:'Shippori Mincho',serif;font-weight:500;color:#f4f1e6}
+.bonus-row{display:flex;gap:130px;align-items:flex-end;justify-content:center}
+.bonus-row figure{display:flex;flex-direction:column;align-items:center;gap:26px}
+.bonus-row img{height:310px;width:auto;object-fit:contain;filter:drop-shadow(0 12px 28px rgba(0,0,0,.5))}
+.bonus-row img.sticker{height:240px;border-radius:8px}
+.bonus-row figcaption{font-family:'Shippori Mincho',serif;font-size:33px;color:#f4f1e6}
+.tracklist{list-style:none;display:flex;flex-direction:column;gap:15px;font-family:'Shippori Mincho',serif}
+.tracklist li{font-size:41px;letter-spacing:.05em;color:#f4f1e6;display:flex;align-items:baseline;gap:28px}
+.tracklist li i{font-family:'Marcellus',serif;font-style:normal;font-size:31px;color:#e7cf8e;min-width:56px;text-align:right}
+.site-logo{width:560px;margin-bottom:44px;filter:drop-shadow(0 0 30px rgba(231,207,142,.4))}
+.site-url{font-family:'Marcellus',serif;font-size:66px;letter-spacing:.08em;color:#e7cf8e}
 #hint{position:absolute;left:40px;bottom:30px;z-index:40;font-family:'Marcellus',serif;
   font-size:26px;letter-spacing:.12em;color:rgba(244,241,230,.4);transition:opacity .4s}
 #hint.hide{opacity:0}
@@ -51,6 +78,56 @@ html,body{background:#05171c;overflow:hidden}
   <canvas id="crisp" width="1920" height="1080"></canvas>
   <img id="logo" src="img/logo-color.png" alt="ANY AND ALL WIND">
   <div id="tagline">2026.07.08（wed）Release<br>ARAKI × Narukaze<br>9 TRACKS EP ALBUM</div>
+
+  <div class="islide" id="s-jacket">
+    <img class="jk-big" src="img/jacket.jpg" alt="ANY AND ALL WIND">
+  </div>
+
+  <div class="islide" id="s-release">
+    <div class="is-eyebrow">Release</div>
+    <div class="is-title">『ANY AND ALL WIND』</div>
+    <div class="rel-spec">
+      <div><span>発売日</span><b>2026.07.08 (水)</b></div>
+      <div><span>価格</span><b>￥3,300（税込）</b></div>
+      <div><span>形態</span><b>CD（蛇腹折り歌詞カード付）</b></div>
+      <div><span>収録</span><b>全9曲</b></div>
+      <div><span>予約</span><b>6/21(日)〜 ARAKI STORE</b></div>
+    </div>
+  </div>
+
+  <div class="islide" id="s-bonus">
+    <div class="is-eyebrow">Bonus</div>
+    <div class="is-title">予約・購入特典</div>
+    <div class="bonus-row">
+      <figure><img src="img/bonus-key.png" alt="ジャケットアクリルキーホルダー"><figcaption>ジャケットアクリルキーホルダー</figcaption></figure>
+      <figure><img class="sticker" src="img/jacket-sm.jpg" alt="ジャケットステッカー"><figcaption>ジャケットステッカー</figcaption></figure>
+    </div>
+    <div class="is-note">6/21(日)〜 ARAKI STORE 予約・販売分に付属</div>
+  </div>
+
+  <div class="islide" id="s-tracks">
+    <div class="is-eyebrow">Tracks</div>
+    <div class="is-title">収録曲 全9曲</div>
+    <ol class="tracklist">
+      <li><i>01</i> モラトリアム・ディシジョン</li>
+      <li><i>02</i> アノニマスヒーロー</li>
+      <li><i>03</i> 余白を透る</li>
+      <li><i>04</i> BlackStar</li>
+      <li><i>05</i> Dead-End Dance</li>
+      <li><i>06</i> Filter Bubble</li>
+      <li><i>07</i> Qualia</li>
+      <li><i>08</i> Nameless Ballade</li>
+      <li><i>09</i> グッバイリメンバー</li>
+    </ol>
+  </div>
+
+  <div class="islide" id="s-site">
+    <div class="is-eyebrow">Special Site</div>
+    <img class="site-logo" src="img/logo-white1.png" alt="ANY AND ALL WIND">
+    <div class="site-url">araki-live.jp/aaaw</div>
+    <div class="is-note">詳しくは特設サイトで</div>
+  </div>
+
   <div class="bar top"></div>
   <div class="bar bot"></div>
   <div id="hint">→ 進む　／　← 戻る　／　F 全画面　／　H ヒント</div>
@@ -75,7 +152,12 @@ const STEPS = [
   { type: 'text', text: '2026.07.08 (wed)', font: "400 188px 'Marcellus'" },
   { type: 'text', text: 'ARAKI × Narukaze', font: "400 168px 'Marcellus'" },
   { type: 'text', text: '新作EPアルバム', font: "700 205px 'Shippori Mincho'" },
-  { type: 'logo' }
+  { type: 'logo' },
+  { type: 'slide', id: 's-jacket' },
+  { type: 'slide', id: 's-release' },
+  { type: 'slide', id: 's-bonus' },
+  { type: 'slide', id: 's-tracks' },
+  { type: 'slide', id: 's-site' }
 ];
 
 /* ====== パーティクル ====== */
@@ -173,9 +255,12 @@ function apply(i) {
   document.getElementById('logo').classList.remove('show'); document.getElementById('logo').style.opacity = 0;
   document.getElementById('tagline').classList.remove('show');
   crisp.style.transition = 'opacity .5s ease, filter .5s ease'; crisp.classList.remove('show');   // 旧白文字は速く退場
-  if (STEPS[i].type === 'idle') { ambient = true; for (const p of particles) { p.st = 'ambient'; p.vx = (Math.random() - .5) * 4; p.vy = -Math.random() * 2; } }
-  else if (STEPS[i].type === 'text') setText(STEPS[i], my);
-  else setLogo(my);
+  document.querySelectorAll('.islide').forEach(el => el.classList.remove('show'));
+  const s = STEPS[i];
+  if (s.type === 'idle') { ambient = true; for (const p of particles) { p.st = 'ambient'; p.vx = (Math.random() - .5) * 4; p.vy = -Math.random() * 2; } }
+  else if (s.type === 'text') setText(s, my);
+  else if (s.type === 'logo') setLogo(my);
+  else { ambient = true; for (const p of particles) p.st = 'ambient'; document.getElementById(s.id).classList.add('show'); }
 }
 
 /* ====== ループ（状態機械） ====== */
