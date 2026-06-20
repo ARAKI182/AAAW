@@ -9,7 +9,7 @@ const TRACKS = [
   {no:'02', ja:'アノニマスヒーロー', color:'#b9aee0'},   /* 動画投稿予定 */
   {no:'03', ja:'余白を透る', color:'#8fcfe6'},           /* 動画投稿予定 */
   {no:'04', ja:'BlackStar', color:'#6a78ff'},
-  {no:'05', ja:'Dead-End Dance', color:'#f3608f'},
+  {no:'05', ja:'Dead-End Dance', video:'cXVxWTl76tk', color:'#f3608f'},
   {no:'06', ja:'Filter Bubble', color:'#b6d96a'},
   {no:'07', ja:'Qualia', video:'ElufWTpeXUs', color:'#43d0ec'},
   {no:'08', ja:'Nameless Ballade', color:'#e7cf8e'},
