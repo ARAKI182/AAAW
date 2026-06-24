@@ -1,0 +1,106 @@
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Marcellus&display=swap');
+
+.aaaw-article{
+  --aaaw-teal:#0f6e56; --aaaw-teal2:#1d9e75; --aaaw-gold:#a8863f;
+  --aaaw-ink:#2b2b29; --aaaw-sub:#6f6c64; --aaaw-line:#e4dfd3; --aaaw-bg2:#f8f7f2;
+  max-width:720px; margin:0 auto; padding:8px 16px 40px;
+  font-family:"Shippori Mincho","Yu Mincho",YuMincho,"Hiragino Mincho ProN",serif;
+  color:var(--aaaw-ink); line-height:1.85; background:#fff;
+  -webkit-font-smoothing:antialiased; text-align:left;
+}
+.aaaw-article *{ box-sizing:border-box; }
+
+.aaaw-hd{ text-align:center; padding:28px 0 22px; border-bottom:1px solid var(--aaaw-line); }
+.aaaw-eyebrow{ font-family:"Marcellus",serif; letter-spacing:.34em; font-size:12px;
+  color:var(--aaaw-gold); margin:0 0 14px; text-indent:.34em; }
+.aaaw-title{ font-family:"Marcellus",serif; font-size:34px; letter-spacing:.08em;
+  color:var(--aaaw-teal); margin:0 0 8px; line-height:1.2; font-weight:400; }
+.aaaw-artist{ font-size:15px; letter-spacing:.16em; color:var(--aaaw-ink); margin:0 0 14px; }
+.aaaw-date{ font-family:"Marcellus",serif; font-size:18px; letter-spacing:.12em;
+  color:var(--aaaw-ink); margin:0; }
+.aaaw-date span{ font-size:13px; color:var(--aaaw-sub); margin-left:2px; }
+
+.aaaw-intro{ padding:22px 4px; font-size:15px; color:#3a3a36; }
+.aaaw-intro p{ margin:0; }
+
+.aaaw-nav{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
+  padding:14px 0; border-top:1px solid var(--aaaw-line); border-bottom:1px solid var(--aaaw-line);
+  margin-bottom:6px; }
+.aaaw-nav a{ font-family:"Marcellus",serif; font-size:12px; letter-spacing:.14em;
+  color:var(--aaaw-teal); text-decoration:none; padding:5px 14px; border:1px solid var(--aaaw-line);
+  border-radius:2px; transition:.2s; }
+.aaaw-nav a:hover{ background:var(--aaaw-teal); color:#fff; }
+
+.aaaw-cta-block{ text-align:center; padding:26px 0 14px; }
+.aaaw-cta{ display:inline-block; font-family:"Marcellus",serif; letter-spacing:.1em;
+  font-size:16px; color:#fff; background:var(--aaaw-teal); text-decoration:none;
+  padding:15px 40px; border-radius:2px; box-shadow:0 6px 18px rgba(15,110,86,.22);
+  transition:.2s; }
+.aaaw-cta:hover{ background:var(--aaaw-teal2); }
+.aaaw-cta.aaaw-lg{ font-size:17px; padding:17px 48px; }
+.aaaw-cta-sub{ font-size:12px; color:var(--aaaw-sub); letter-spacing:.06em; margin:12px 0 0; }
+
+.aaaw-sec{ padding:30px 0 6px; }
+.aaaw-h2{ font-family:"Marcellus",serif; font-size:13px; letter-spacing:.26em;
+  color:var(--aaaw-gold); text-transform:uppercase; margin:0 0 18px; padding-bottom:8px;
+  border-bottom:1px solid var(--aaaw-line); font-weight:400; }
+
+.aaaw-spec{ width:100%; border-collapse:collapse; font-size:14.5px; margin:0 0 18px; }
+.aaaw-spec th,.aaaw-spec td{ text-align:left; padding:11px 6px; border-bottom:1px solid var(--aaaw-line);
+  vertical-align:top; }
+.aaaw-spec th{ width:34%; color:var(--aaaw-sub); font-weight:500; letter-spacing:.04em; white-space:nowrap; }
+.aaaw-spec td{ color:var(--aaaw-ink); }
+
+.aaaw-credit{ background:var(--aaaw-bg2); border-left:2px solid var(--aaaw-teal2);
+  padding:14px 18px; font-size:13px; color:#46453f; }
+.aaaw-credit p{ margin:3px 0; letter-spacing:.03em; }
+
+.aaaw-tracks{ list-style:none; margin:0; padding:0; }
+.aaaw-tracks li{ display:flex; align-items:baseline; gap:14px; padding:12px 6px;
+  border-bottom:1px solid var(--aaaw-line); font-size:16px; letter-spacing:.03em; }
+.aaaw-n{ font-family:"Marcellus",serif; font-size:14px; color:var(--aaaw-gold);
+  min-width:26px; letter-spacing:.05em; }
+
+.aaaw-store-grid{ display:flex; flex-wrap:wrap; gap:14px; }
+.aaaw-store-card{ flex:1 1 280px; border:1px solid var(--aaaw-line); border-radius:3px;
+  padding:20px 18px; background:#fff; }
+.aaaw-store-tag{ font-family:"Marcellus",serif; font-size:11px; letter-spacing:.18em;
+  color:var(--aaaw-gold); margin:0 0 8px; }
+.aaaw-store-ttl{ font-size:17px; color:var(--aaaw-teal); margin:0 0 10px; letter-spacing:.04em; font-weight:600; }
+.aaaw-store-status{ font-size:13px; color:#46453f; margin:0 0 12px; }
+.aaaw-bonus{ font-size:13px; color:var(--aaaw-ink); margin:0 0 16px; }
+.aaaw-bonus span{ display:inline-block; font-size:11px; color:var(--aaaw-teal);
+  border:1px solid var(--aaaw-teal2); border-radius:2px; padding:1px 7px; margin-right:8px; letter-spacing:.08em; }
+.aaaw-store-btn{ display:block; text-align:center; font-family:"Marcellus",serif; letter-spacing:.08em;
+  font-size:14px; color:#fff; background:var(--aaaw-teal); text-decoration:none;
+  padding:12px; border-radius:2px; transition:.2s; }
+.aaaw-store-btn:hover{ background:var(--aaaw-teal2); }
+.aaaw-store-btn.aaaw-ghost{ background:#fff; color:var(--aaaw-teal); border:1px solid var(--aaaw-teal); }
+.aaaw-store-btn.aaaw-ghost:hover{ background:var(--aaaw-bg2); }
+
+.aaaw-note{ font-size:12px; color:var(--aaaw-sub); margin:16px 0 0; letter-spacing:.02em; }
+
+.aaaw-acc{ border:1px solid var(--aaaw-line); border-radius:3px; margin-bottom:10px; overflow:hidden; }
+.aaaw-acc summary{ cursor:pointer; padding:14px 18px; font-size:14px; color:var(--aaaw-teal);
+  background:var(--aaaw-bg2); list-style:none; letter-spacing:.04em; position:relative; }
+.aaaw-acc summary::-webkit-details-marker{ display:none; }
+.aaaw-acc summary::after{ content:"+"; position:absolute; right:18px; top:13px;
+  font-family:"Marcellus",serif; color:var(--aaaw-gold); font-size:17px; }
+.aaaw-acc[open] summary::after{ content:"\2212"; }
+.aaaw-acc-body{ padding:14px 18px; font-size:13px; color:#46453f; }
+.aaaw-acc-body ul{ margin:0; padding-left:18px; }
+.aaaw-acc-body li{ margin:6px 0; line-height:1.7; }
+
+.aaaw-foot{ text-align:center; padding:34px 0 6px; margin-top:18px; border-top:1px solid var(--aaaw-line); }
+.aaaw-letter{ margin:20px 0 0; }
+.aaaw-letter a{ font-size:12px; color:var(--aaaw-sub); letter-spacing:.06em;
+  text-decoration:none; border-bottom:1px solid var(--aaaw-line); padding-bottom:2px; }
+.aaaw-letter a:hover{ color:var(--aaaw-teal); }
+
+@media (max-width:520px){
+  .aaaw-title{ font-size:27px; }
+  .aaaw-cta{ display:block; padding:15px 20px; }
+  .aaaw-store-card{ flex:1 1 100%; }
+}
+</style>

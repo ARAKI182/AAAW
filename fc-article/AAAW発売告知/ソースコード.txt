@@ -1,0 +1,109 @@
+<div class="aaaw-article">
+
+  <header class="aaaw-hd">
+    <p class="aaaw-eyebrow">NEW RELEASE</p>
+    <h1 class="aaaw-title">ANY AND ALL WIND</h1>
+    <p class="aaaw-artist">ARAKI &#215; Narukaze</p>
+    <p class="aaaw-date">2026.7.15<span>(&#27700;)</span> RELEASE</p>
+  </header>
+
+  <div class="aaaw-intro">
+    <p>あらき待望の新作EP『ANY AND ALL WIND』が、2026年7月15日（水）に発売されます。あらきと鳴風によるタッグ作品で、全9曲を収録。先行公開された楽曲を含む本作の詳細・ご予約は、特設サイトにて公開中です。</p>
+  </div>
+
+  <nav class="aaaw-nav">
+    <a href="#aaaw-release">RELEASE</a>
+    <a href="#aaaw-tracklist">TRACKLIST</a>
+    <a href="#aaaw-store">STORE</a>
+    <a href="#aaaw-notice">NOTICE</a>
+  </nav>
+
+  <div class="aaaw-cta-block">
+    <a class="aaaw-cta" href="https://araki-live.jp/aaaw/" target="_blank" rel="noopener">特設サイトを見る &#8594;</a>
+    <p class="aaaw-cta-sub">ジャケット・試聴・全曲クレジットはこちら</p>
+  </div>
+
+  <section id="aaaw-release" class="aaaw-sec">
+    <h2 class="aaaw-h2">Release</h2>
+    <table class="aaaw-spec">
+      <tbody>
+        <tr><th>タイトル</th><td>ANY AND ALL WIND</td></tr>
+        <tr><th>アーティスト</th><td>ARAKI &#215; Narukaze</td></tr>
+        <tr><th>発売日</th><td>2026年7月15日（水）</td></tr>
+        <tr><th>価格</th><td>&#165;3,300（税込）</td></tr>
+        <tr><th>形態</th><td>通常版／全9曲収録</td></tr>
+      </tbody>
+    </table>
+    <div class="aaaw-credit">
+      <p>Vocal：ARAKI</p>
+      <p>Words &amp; Music：ARAKI（M-5 Music：Narukaze）</p>
+      <p>Arrangement：Narukaze</p>
+      <p>Mastering：TSUKASA KIKUCHI</p>
+      <p>Artwork：AKIRA MATSUMURA／Logo：Binn</p>
+    </div>
+  </section>
+
+  <section id="aaaw-tracklist" class="aaaw-sec">
+    <h2 class="aaaw-h2">Tracklist</h2>
+    <ol class="aaaw-tracks">
+      <li><span class="aaaw-n">01</span>モラトリアム・ディシジョン</li>
+      <li><span class="aaaw-n">02</span>アノニマスヒーロー</li>
+      <li><span class="aaaw-n">03</span>余白を透る</li>
+      <li><span class="aaaw-n">04</span>BlackStar</li>
+      <li><span class="aaaw-n">05</span>Dead-End Dance</li>
+      <li><span class="aaaw-n">06</span>Filter Bubble</li>
+      <li><span class="aaaw-n">07</span>Qualia</li>
+      <li><span class="aaaw-n">08</span>Nameless Ballade</li>
+      <li><span class="aaaw-n">09</span>グッバイリメンバー</li>
+    </ol>
+  </section>
+
+  <section id="aaaw-store" class="aaaw-sec">
+    <h2 class="aaaw-h2">Store</h2>
+    <div class="aaaw-store-grid">
+      <div class="aaaw-store-card">
+        <p class="aaaw-store-tag">Online Store</p>
+        <h3 class="aaaw-store-ttl">ARAKI STORE（公式EC）</h3>
+        <p class="aaaw-store-status">2026年6月21日（日）より予約受付開始</p>
+        <p class="aaaw-bonus"><span>特典</span>ジャケットアクリルキーホルダー</p>
+        <a class="aaaw-store-btn" href="https://araki-axiz.stores.jp/" target="_blank" rel="noopener">ARAKI STORE &#8594;</a>
+      </div>
+      <div class="aaaw-store-card">
+        <p class="aaaw-store-tag">Live Venue</p>
+        <h3 class="aaaw-store-ttl">ライブ会場物販</h3>
+        <p class="aaaw-store-status">2026年8月10日（月）より「LIVE ARK ODYSSEY」各公演にて</p>
+        <p class="aaaw-bonus"><span>特典</span>ジャケットステッカー</p>
+        <a class="aaaw-store-btn aaaw-ghost" href="https://araki-live.jp/odyssey/" target="_blank" rel="noopener">ツアー特設サイト &#8594;</a>
+      </div>
+    </div>
+    <p class="aaaw-note">※特典は数量限定。各販売経路ごとにご用意し、なくなり次第終了となります。</p>
+  </section>
+
+  <section id="aaaw-notice" class="aaaw-sec">
+    <h2 class="aaaw-h2">Notice</h2>
+    <details class="aaaw-acc">
+      <summary>ご予約・発送について</summary>
+      <div class="aaaw-acc-body">
+        <ul>
+          <li>商品の発送は、発売日（2026年7月15日）以降、順次対応いたします。</li>
+          <li>予約以外の商品を同時にご注文の場合、予約商品と合わせての発送となります。お急ぎの場合はカートを分けてのご注文をお願いいたします。</li>
+        </ul>
+      </div>
+    </details>
+    <details class="aaaw-acc">
+      <summary>特典について</summary>
+      <div class="aaaw-acc-body">
+        <ul>
+          <li>特典は数量限定です。各販売経路ごとにご用意し、なくなり次第終了となります。</li>
+          <li>特典のデザイン・仕様は予告なく変更となる場合があります。</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <div class="aaaw-foot">
+    <a class="aaaw-cta aaaw-lg" href="https://araki-live.jp/aaaw/" target="_blank" rel="noopener">特設サイトへ &#8594;</a>
+    <p class="aaaw-letter"><a href="https://araki-live.jp/letter/" target="_blank" rel="noopener">デジタルお便りはこちら</a></p>
+  </div>
+
+</div>
