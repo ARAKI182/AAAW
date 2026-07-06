@@ -344,8 +344,13 @@ footer{background:rgba(7,25,30,.92);padding:3.2rem 24px 3.2rem;text-align:center
 .acol-eyebrow{font-family:var(--font-en);font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt)}
 .acol-lead{max-width:700px;margin:.8rem auto .5rem;font-family:var(--font-mincho);font-size:1.05rem;line-height:1.95;letter-spacing:.04em;color:var(--cream)}
 .acol-sub{font-size:.82rem;color:var(--cream-dim);letter-spacing:.03em}
-.acol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin:0 auto;align-items:start}
-.acol-card{display:flex;flex-direction:column;background:rgba(13,47,54,.6);border:1px solid rgba(231,207,142,.18);border-radius:8px;padding:1.7rem 1.5rem;box-shadow:0 12px 36px rgba(0,0,0,.3)}
+.acol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin:0 auto}
+.acol-card{position:relative;display:flex;flex-direction:column;background:rgba(13,47,54,.6);border:1px solid rgba(231,207,142,.18);border-radius:8px;padding:2.4rem 1.5rem 1.7rem;box-shadow:0 12px 36px rgba(0,0,0,.3)}
+.acol-badge{position:absolute;top:14px;left:16px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-family:var(--font-en);font-size:.82rem;color:#0a262c;background:linear-gradient(135deg,var(--gold-lt),var(--gold));border-radius:50%;line-height:1;z-index:2}
+.acol-serial{margin-top:1.2rem;padding-top:.9rem;border-top:1px solid rgba(231,207,142,.14)}
+.acol-serial-h{font-size:.8rem;letter-spacing:.05em;color:var(--gold-lt);margin:0 0 .5rem}
+.acol-serial-t{font-size:.77rem;line-height:1.75;color:var(--cream-dim);margin:0 0 .5rem}
+.acol-serial .acol-meta{border-top:0;padding-top:0;margin-top:.2rem}
 .acol-tag{font-family:var(--font-en);font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-lt)}
 .acol-ttl{font-family:var(--font-mincho);font-size:1.22rem;color:var(--cream);margin:.5rem 0 .7rem;letter-spacing:.04em}
 .acol-desc{font-size:.82rem;line-height:1.85;color:var(--cream-dim);margin:0 0 1.1rem}
@@ -356,7 +361,7 @@ footer{background:rgba(7,25,30,.92);padding:3.2rem 24px 3.2rem;text-align:center
 .acol-note{max-width:800px;margin:1.9rem auto 0;font-size:.78rem;line-height:1.9;letter-spacing:.02em;color:var(--cream-dim)}
 .acol-note p{margin:.5rem 0}
 .acol-cta{margin-top:1.9rem;display:flex;flex-direction:column;align-items:center;gap:.9rem}
-.acol-gratte-btn{display:flex;align-items:center;justify-content:center;gap:.4em;width:100%;box-sizing:border-box;margin-top:1.1rem;padding:.6rem .9rem;font-family:var(--font-en);font-size:.86rem;letter-spacing:.12em;color:var(--gold-lt);background:transparent;border:1px solid rgba(231,207,142,.45);border-radius:4px;text-decoration:none;transition:background .3s,color .3s}
+.acol-gratte-btn{display:flex;align-items:center;justify-content:center;gap:.4em;width:100%;box-sizing:border-box;margin-top:auto;padding:.6rem .9rem;font-family:var(--font-en);font-size:.86rem;letter-spacing:.12em;color:var(--gold-lt);background:transparent;border:1px solid rgba(231,207,142,.45);border-radius:4px;text-decoration:none;transition:background .3s,color .3s}
 .acol-gratte-btn:hover{background:rgba(231,207,142,.12);color:var(--cream)}
 .acol-gratte-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
 .acol-thumbs{display:flex;flex-direction:column;gap:.7rem;margin:.2rem 0 1.1rem}
@@ -364,7 +369,7 @@ footer{background:rgba(7,25,30,.92);padding:3.2rem 24px 3.2rem;text-align:center
 .acol-thumb:hover{border-color:var(--gold-lt);transform:translateY(-2px)}
 .acol-thumb img{display:block;width:100%;height:auto}
 .acol-thumb::after{content:"拡大";position:absolute;right:7px;bottom:7px;font-family:var(--font-sans);font-size:.62rem;letter-spacing:.06em;color:var(--cream);background:rgba(10,38,44,.8);padding:2px 8px;border-radius:3px;pointer-events:none}
-.acol-card-btn{display:flex;justify-content:center;width:100%;box-sizing:border-box;margin-top:1.1rem;font-size:.86rem;padding:.62rem 1rem}
+.acol-card-btn{display:flex;justify-content:center;width:100%;box-sizing:border-box;margin-top:auto;font-size:.86rem;padding:.62rem 1rem}
 .acol-card-note{margin-top:1.1rem;padding-top:.85rem;border-top:1px solid rgba(231,207,142,.14);font-size:.72rem;line-height:1.7;letter-spacing:.02em;color:var(--cream-dim)}
 .modal-box-img{width:min(100%,1040px)}
 .modal-imgwrap{border-radius:8px;overflow:hidden;background:#0a262c;box-shadow:0 24px 70px rgba(0,0,0,.6),0 0 0 1px rgba(231,207,142,.25)}
