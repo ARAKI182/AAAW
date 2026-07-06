@@ -167,7 +167,10 @@
         <div class="acol-card">
           <span class="acol-tag">Collab Goods</span>
           <h3 class="acol-ttl">コラボグッズ</h3>
-          <p class="acol-desc">キャラバッジ・ミニアクリルスタンド・ステッカー ほか全9アイテム。</p>
+          <div class="acol-thumbs">
+            <button class="acol-thumb" data-full="img/animate1.jpg"><img src="img/animate1.jpg" alt="あらき アニメイトコラボグッズ ①" loading="lazy"></button>
+            <button class="acol-thumb" data-full="img/animate2.jpg"><img src="img/animate2.jpg" alt="あらき アニメイトコラボグッズ ②" loading="lazy"></button>
+          </div>
           <ul class="acol-meta">
             <li><span>先行予約</span>7/8(水)20:00〜7/26(日)</li>
             <li><span>店頭発売</span>9/25(金)〜</li>
@@ -176,7 +179,10 @@
         <div class="acol-card">
           <span class="acol-tag">あらき &times; Gratte</span>
           <h3 class="acol-ttl">Gratte 開催</h3>
-          <p class="acol-desc">ドリンク＆オリジナルノベルティ。<br>グラフィックアイスは一部店舗のみ。</p>
+          <div class="acol-thumbs">
+            <button class="acol-thumb" data-full="img/Gratte1.jpg"><img src="img/Gratte1.jpg" alt="あらき × Gratte キービジュアル" loading="lazy"></button>
+            <button class="acol-thumb" data-full="img/Gratte2.jpg"><img src="img/Gratte2.jpg" alt="あらき × Gratte メニュー" loading="lazy"></button>
+          </div>
           <ul class="acol-meta">
             <li><span>期間</span>9/25(金)〜11/15(日)</li>
             <li><span>店舗</span>池袋本店 ほか全国6店舗</li>
@@ -267,6 +273,15 @@
   <div class="modal-box">
     <button class="modal-close" aria-label="閉じる">&times;</button>
     <div class="modal-video"><iframe id="modalIframe" title="Music Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+  </div>
+</div>
+
+<!-- ===== IMAGE MODAL（アニメイトPOP拡大） ===== -->
+<div class="modal" id="imgModal" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="modal-box modal-box-img">
+    <button class="modal-close" aria-label="閉じる">&times;</button>
+    <div class="modal-imgwrap"><img id="modalImg" alt=""></div>
   </div>
 </div>
 

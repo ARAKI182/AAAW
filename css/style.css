@@ -359,6 +359,14 @@ footer{background:rgba(7,25,30,.92);padding:3.2rem 24px 3.2rem;text-align:center
 .acol-gratte-btn{display:inline-flex;align-items:center;justify-content:center;gap:.4em;margin-top:.9rem;padding:.5rem .9rem;font-family:var(--font-en);font-size:.86rem;letter-spacing:.12em;color:var(--gold-lt);background:transparent;border:1px solid rgba(231,207,142,.45);border-radius:4px;text-decoration:none;transition:background .3s,color .3s}
 .acol-gratte-btn:hover{background:rgba(231,207,142,.12);color:var(--cream)}
 .acol-gratte-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
+.acol-thumbs{display:flex;gap:.6rem;margin:.2rem 0 1.1rem}
+.acol-thumb{flex:1;min-width:0;padding:0;border:1px solid rgba(231,207,142,.2);border-radius:6px;overflow:hidden;background:#0d2f36;cursor:pointer;position:relative;transition:border-color .3s,transform .3s}
+.acol-thumb:hover{border-color:var(--gold-lt);transform:translateY(-2px)}
+.acol-thumb img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.acol-thumb::after{content:"拡大";position:absolute;right:6px;bottom:6px;font-family:var(--font-sans);font-size:.6rem;letter-spacing:.06em;color:var(--cream);background:rgba(10,38,44,.78);padding:2px 7px;border-radius:3px;pointer-events:none}
+.modal-box-img{width:min(100%,1040px)}
+.modal-imgwrap{border-radius:8px;overflow:hidden;background:#0a262c;box-shadow:0 24px 70px rgba(0,0,0,.6),0 0 0 1px rgba(231,207,142,.25)}
+.modal-imgwrap img{display:block;width:100%;height:auto;max-height:86vh;object-fit:contain}
 @media(max-width:820px){
   .acol-grid{grid-template-columns:1fr;gap:1.1rem;max-width:420px}
   .acol-block{max-width:100%}

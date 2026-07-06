@@ -79,6 +79,27 @@ modal.querySelector('.modal-backdrop').addEventListener('click', closeVideo);
 modal.querySelector('.modal-close').addEventListener('click', closeVideo);
 addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeVideo(); });
 
+/* ====== 画像ライトボックス（アニメイトPOP拡大） ====== */
+const imgModal = document.getElementById('imgModal');
+if (imgModal) {
+  const modalImg = document.getElementById('modalImg');
+  const openImg = (src, alt) => {
+    modalImg.src = src; modalImg.alt = alt || '';
+    imgModal.classList.add('open'); imgModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeImg = () => {
+    imgModal.classList.remove('open'); imgModal.setAttribute('aria-hidden', 'true');
+    modalImg.src = ''; document.body.style.overflow = '';
+  };
+  document.querySelectorAll('.acol-thumb[data-full]').forEach(b =>
+    b.addEventListener('click', () => openImg(b.dataset.full, b.querySelector('img') && b.querySelector('img').alt))
+  );
+  imgModal.querySelector('.modal-backdrop').addEventListener('click', closeImg);
+  imgModal.querySelector('.modal-close').addEventListener('click', closeImg);
+  addEventListener('keydown', e => { if (e.key === 'Escape' && imgModal.classList.contains('open')) closeImg(); });
+}
+
 /* ====== 全曲クロスフェード（収録曲の下） ====== */
 /* ★クロスフェード動画ができたら、ここにYouTubeのIDを入れるだけでボタンが出ます（例: 'AbCdEf12345'） */
 const CROSSFADE_ID = '';
