@@ -1,0 +1,127 @@
+<div class="anm-article">
+
+  <header class="anm-hd">
+    <p class="anm-eyebrow">ANIMATE × ARAKI</p>
+    <h1 class="anm-title">アニメイトコラボレーション決定</h1>
+    <p class="anm-lead">アニメイトにて、あらきの新作EPアルバム『ANY AND ALL WIND』＆アニメイト限定コラボグッズの発売、および「あらき×Gratte」の開催が決定！<br>さらに、アニメイトにて『ANY AND ALL WIND』のご購入や、対象のグッズ・グラッテ飲食のご購入で、サイン会付きリリースイベントやコラボグッズ発売記念握手会に抽選でご招待いたします。</p>
+  </header>
+
+  <nav class="anm-nav">
+    <a href="#anm-goods">GOODS</a>
+    <a href="#anm-gratte">GRATTE</a>
+    <a href="#anm-event">EVENT</a>
+    <a href="#anm-shop">SHOP</a>
+  </nav>
+
+  <section class="anm-sec">
+    <div class="anm-highlight">
+      <p>全国のアニメイト店頭・アニメイト通販にて、<b>2026年7月8日(水)20:00</b>より「あらき」アニメイトコラボグッズの先行予約を開始します。</p>
+      <ul class="anm-list">
+        <li>7月26日(日)23:59までにご予約の方は、必ず商品をご購入いただけます。</li>
+        <li>アニメイト店頭での発売は <b>2026年9月25日(金)</b> より。</li>
+        <li>CD・コラボグッズをご購入の方には、ご購入内容に応じてサイン会付きリリースイベントやコラボグッズ発売記念握手会に応募できるシリアルコードをお渡しします。</li>
+      </ul>
+      <a class="anm-btn" href="https://www.animate-onlineshop.jp/corner/cc/araki-0708goods/cd/4555/" target="_blank" rel="noopener">アニメイト通販で予約する &#8594;</a>
+    </div>
+  </section>
+
+  <section id="anm-goods" class="anm-sec">
+    <h2 class="anm-h2">Collaboration Goods</h2>
+    <p class="anm-sub-inline">発売元：ムービック</p>
+    <table class="anm-table">
+      <tbody>
+        <tr><th>キャラバッジコレクション（全6種）</th><td>1パック ¥495／1BOX(6パック入り) ¥2,970</td></tr>
+        <tr><th>ミニアクリルスタンドコレクション（全6種）</th><td>1パック ¥770／1BOX(6パック入り) ¥4,620</td></tr>
+        <tr><th>オーロラステッカーセット（3種）</th><td>各 ¥550</td></tr>
+        <tr><th>シャープペン</th><td>¥770</td></tr>
+        <tr><th>スタンドミラー</th><td>各 ¥1,100</td></tr>
+        <tr><th>クリアポーチ</th><td>¥1,980</td></tr>
+        <tr><th>あらきのお調理保存容器</th><td>¥1,265</td></tr>
+        <tr><th>ヘアバンド</th><td>¥2,310</td></tr>
+        <tr><th>フロストボトル</th><td>¥1,980</td></tr>
+      </tbody>
+    </table>
+    <p class="anm-cap">※価格はすべて税込表記です。</p>
+    <div class="anm-imgs">
+      <img src="https://araki-live.jp/aaaw/img/animate2.jpg" alt="あらき アニメイトコラボグッズ（バッジ・アクリルスタンド）">
+      <img src="https://araki-live.jp/aaaw/img/animate1.jpg" alt="あらき アニメイトコラボグッズ（雑貨）">
+    </div>
+  </section>
+
+  <section id="anm-gratte" class="anm-sec">
+    <h2 class="anm-h2">あらき × Gratte</h2>
+    <p>アニメイトコラボグッズの発売を記念して、「あらき×Gratte」の開催も決定！<br>ドリンクの上のクリームにキャラクターをプリントしたグラフィックラテや、同じ絵柄のアイシングクッキー等を販売します。</p>
+    <table class="anm-table">
+      <tbody>
+        <tr><th>開催期間</th><td>2026年9月25日(金)〜2026年11月15日(日)</td></tr>
+        <tr><th>開催店舗</th><td>アニメイトグラッテ アニメイト通り店・池袋本店・横浜ビブレ・大阪日本橋・梅田・名古屋<br><small>※グラフィックアイスは一部店舗のみでの販売となります。</small></td></tr>
+        <tr><th>クッキー出張販売店舗</th><td>アニメイト 浜松・三宮・広島・鹿児島</td></tr>
+      </tbody>
+    </table>
+    <div class="anm-imgs">
+      <img src="https://araki-live.jp/aaaw/img/Gratte1.jpg" alt="あらき × Gratte キービジュアル">
+      <img src="https://araki-live.jp/aaaw/img/Gratte2.jpg" alt="あらき × Gratte メニュー">
+    </div>
+    <a class="anm-btn anm-ghost" href="https://www.animate.co.jp/gratte/45715/" target="_blank" rel="noopener">Gratte 詳細ページ &#8594;</a>
+  </section>
+
+  <section id="anm-event" class="anm-sec">
+    <h2 class="anm-h2">Release Event</h2>
+    <p class="anm-evt-ttl">あらき 『ANY AND ALL WIND』発売記念リリースイベント（サイン会付き）＆アニメイトコラボグッズ発売記念握手会　応募抽選キャンペーン</p>
+    <div class="anm-parts">
+      <div class="anm-part"><span class="anm-part-no">第1部</span><p>『ANY AND ALL WIND』発売記念リリースイベント（サイン会付き）</p></div>
+      <div class="anm-part"><span class="anm-part-no">第2部</span><p>アニメイトコラボグッズ発売記念握手会</p></div>
+    </div>
+    <table class="anm-table">
+      <tbody>
+        <tr><th>開催日</th><td>2026年11月21日(土)　都内某所<br><small>※開催場所・開場／開演時間は当選者にお知らせいたします。</small></td></tr>
+        <tr><th>出演者</th><td>あらき・鳴風<br><small>※鳴風は第1部のみの出演です。サイン・握手の実施は「あらき」のみとなります。</small></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="anm-h3">応募シリアル入手方法</h3>
+    <p>シリアル付き商品を予約期間内にお申し込みの方、もしくは期間内に店頭にて商品をご購入の方が対象になります。</p>
+    <ul class="anm-list">
+      <li><b>第1部（リリースイベント）</b>：全国アニメイト・アニメイト通販にて9月25日(金)発売の『ANY AND ALL WIND』をご購入1点毎に、リリースイベント応募シリアルを1つプレゼント！</li>
+      <li><b>第2部（握手会）</b>：全国アニメイト・アニメイト通販にて「あらき」コラボグッズ・グラッテ飲食をご購入 ¥3,300(税込)毎に、握手会応募シリアルを1つプレゼント！</li>
+    </ul>
+    <table class="anm-table">
+      <tbody>
+        <tr><th>事前予約期間</th><td>2026年7月8日(水)20:00〜7月26日(日)23:59</td></tr>
+        <tr><th>店頭販売期間</th><td>2026年9月25日(金)〜</td></tr>
+        <tr><th>シリアル配布期間</th><td>2026年9月25日(金)〜10月12日(月・祝)<br><small>※通販でご購入の方へは、10/14(水)頃にマイページにて配布のご連絡をいたします。</small></td></tr>
+        <tr><th>応募期間</th><td>2026年9月25日(金)〜10月25日(日)23:59</td></tr>
+        <tr><th>当選通知</th><td>2026年10月下旬〜11月上旬</td></tr>
+      </tbody>
+    </table>
+    <p class="anm-cap">※お申込受付には「CLUB animate」への登録が必要となります（登録は無料です）。<br>※事前予約開始から店頭発売日までにご注文の方も配布対象です。事前予約期間後は在庫でのご案内となります。<br>※詳細は後日発表いたします。</p>
+  </section>
+
+  <section id="anm-shop" class="anm-sec">
+    <h2 class="anm-h2">販売先</h2>
+    <ul class="anm-list">
+      <li>アニメイト店舗：<a href="https://www.animate.co.jp/shop/" target="_blank" rel="noopener">animate.co.jp/shop</a></li>
+      <li>アニメイト通販：<a href="https://www.animate-onlineshop.jp/corner/cc/araki-0708goods/cd/4555/" target="_blank" rel="noopener">商品ページはこちら</a></li>
+    </ul>
+    <div class="anm-cta-foot">
+      <a class="anm-btn" href="https://www.animate-onlineshop.jp/corner/cc/araki-0708goods/cd/4555/" target="_blank" rel="noopener">アニメイト通販で予約する &#8594;</a>
+    </div>
+  </section>
+
+  <details class="anm-acc">
+    <summary>ご注意事項</summary>
+    <div class="anm-acc-body">
+      <ul>
+        <li>画像はイメージです。実際の商品とは異なる場合があります。</li>
+        <li>商品の発売・仕様、イベント内容につきましては、諸般の事情により変更・延期・中止になる場合がございます。ご了承ください。</li>
+      </ul>
+    </div>
+  </details>
+
+  <footer class="anm-foot">
+    <p class="anm-rights">&copy;ARAKI</p>
+    <p>あらき オフィシャルサイト：<a href="https://araki-axiz.com/" target="_blank" rel="noopener">araki-axiz.com</a><br>ムービック：<a href="https://www.movic.jp" target="_blank" rel="noopener">movic.jp</a></p>
+    <p class="anm-letter"><a href="https://araki-live.jp/letter/" target="_blank" rel="noopener">デジタルお便りはこちら</a></p>
+  </footer>
+
+</div>
