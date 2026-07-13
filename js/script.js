@@ -102,7 +102,7 @@ if (imgModal) {
 
 /* ====== 全曲クロスフェード（収録曲の下） ====== */
 /* ★クロスフェード動画ができたら、ここにYouTubeのIDを入れるだけでボタンが出ます（例: 'AbCdEf12345'） */
-const CROSSFADE_ID = '';
+const CROSSFADE_ID = 'R2EFTxYirZI';
 const cfWrap = document.getElementById('crossfadeWrap');
 if (CROSSFADE_ID) {
   cfWrap.innerHTML = `<button class="crossfade-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>全曲クロスフェードを見る</button>`;
