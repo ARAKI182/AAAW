@@ -34,7 +34,7 @@
         <tr><th>ミニアクリルスタンドコレクション（全6種）</th><td>1パック ¥770／1BOX(6パック入り) ¥4,620</td></tr>
         <tr><th>オーロラステッカーセット（3種）</th><td>各 ¥550</td></tr>
         <tr><th>シャープペン</th><td>¥770</td></tr>
-        <tr><th>スタンドミラー</th><td>各 ¥1,100</td></tr>
+        <tr><th>スタンドミラー</th><td>¥1,100</td></tr>
         <tr><th>クリアポーチ</th><td>¥1,980</td></tr>
         <tr><th>あらきのお調理保存容器</th><td>¥1,265</td></tr>
         <tr><th>ヘアバンド</th><td>¥2,310</td></tr>
@@ -69,12 +69,12 @@
     <h2 class="anm-h2">Release Event</h2>
     <p class="anm-evt-ttl">あらき 『ANY AND ALL WIND』発売記念リリースイベント（サイン会付き）＆アニメイトコラボグッズ発売記念握手会　応募抽選キャンペーン</p>
     <div class="anm-parts">
-      <div class="anm-part"><span class="anm-part-no">第1部</span><p>『ANY AND ALL WIND』発売記念リリースイベント（サイン会付き）</p></div>
-      <div class="anm-part"><span class="anm-part-no">第2部</span><p>アニメイトコラボグッズ発売記念握手会</p></div>
+      <div class="anm-part"><span class="anm-part-no">第1部</span><p>『ANY AND ALL WIND』発売記念リリースイベント（サイン会付き）<small>あらきがお客様のCDへサインを行います。応募対象商品である『ANY AND ALL WIND』を必ずご持参ください。</small></p></div>
+      <div class="anm-part"><span class="anm-part-no">第2部</span><p>アニメイトコラボグッズ発売記念握手会<small>あらきがお客様と握手を行います。</small></p></div>
     </div>
     <table class="anm-table">
       <tbody>
-        <tr><th>開催日</th><td>2026年11月21日(土)　都内某所<br><small>※開催場所・開場／開演時間は当選者にお知らせいたします。</small></td></tr>
+        <tr><th>開催日</th><td>2026年11月21日(土)　東京都内某所<br><small>※開場・開演時間は当選者にお知らせいたします。</small></td></tr>
         <tr><th>出演者</th><td>あらき・鳴風<br><small>※鳴風は第1部のみの出演です。サイン・握手の実施は「あらき」のみとなります。</small></td></tr>
       </tbody>
     </table>
@@ -89,12 +89,36 @@
       <tbody>
         <tr><th>事前予約期間</th><td>2026年7月8日(水)20:00〜7月26日(日)23:59</td></tr>
         <tr><th>店頭販売期間</th><td>2026年9月25日(金)〜</td></tr>
-        <tr><th>シリアル配布期間</th><td>2026年9月25日(金)〜10月12日(月・祝)<br><small>※通販でご購入の方へは、10/14(水)頃にマイページにて配布のご連絡をいたします。</small></td></tr>
+        <tr><th>シリアル配布期間</th><td>店舗・通販ともに 2026年9月25日(金)〜10月12日(月・祝)<br><small>※通販は10月12日(月・祝)までに対象商品が出荷された方が配布対象です。10/14(水)頃にマイページにてご連絡いたします。</small></td></tr>
         <tr><th>応募期間</th><td>2026年9月25日(金)〜10月25日(日)23:59</td></tr>
         <tr><th>当選通知</th><td>2026年10月下旬〜11月上旬</td></tr>
       </tbody>
     </table>
-    <p class="anm-cap">※お申込受付には「CLUB animate」への登録が必要となります（登録は無料です）。<br>※事前予約開始から店頭発売日までにご注文の方も配布対象です。事前予約期間後は在庫でのご案内となります。</p>
+    <p class="anm-cap">※事前予約開始から店頭発売日までにご注文の方も配布対象です。事前予約期間後は在庫でのご案内となります。</p>
+
+    <h3 class="anm-h3">お申し込み方法</h3>
+    <ul class="anm-list">
+      <li>応募シリアルに記載の申込期間内に、「CLUB animate」内「イベント申込・アンケート」の受付専用ページよりお申し込みください（CLUB animateへの登録が必要です／登録無料）。</li>
+      <li>抽選結果は「イベント申込・アンケート」内の申込・回答履歴よりご確認いただけます。通知メールに当落は記載されません。</li>
+      <li>1シリアルにつき1回ご応募いただけます。応募回数に制限はございません。</li>
+      <li>お申し込み内容の変更・取り消しはお受けできません。</li>
+    </ul>
+
+    <details class="anm-acc">
+      <summary>イベント参加についてのご注意</summary>
+      <div class="anm-acc-body">
+        <ul>
+          <li>当選権利はご当選者ご本人（小学生以上）1名様のみ有効です。ご本人様以外のご入場・ご参加はできません。</li>
+          <li>当日は本人確認を行う場合がございます。有効な身分証明書をご準備ください（コピー・期限切れは不可）。ご提示いただけない場合、ご入場をお断りする場合がございます。</li>
+          <li>当日は申込・回答履歴内の当選画面をスタッフへご提示ください。スクリーンショット等は無効となります。</li>
+          <li>当選権利および応募シリアル・特典等の譲渡・転売は固く禁止いたします。</li>
+          <li>客席内でのご飲食・喫煙、撮影・録音・録画はお断りしております。</li>
+          <li>徹夜や早朝からの整列は固く禁止いたします。</li>
+          <li>そのほかの注意事項は、リリイベ詳細ページを必ずご確認ください。</li>
+        </ul>
+      </div>
+    </details>
+
     <a class="anm-btn anm-ghost" href="https://www.animate-onlineshop.jp/contents/fair_event/detail.php?id=115938" target="_blank" rel="noopener">リリイベ詳細ページ &#8594;</a>
   </section>
 
@@ -121,7 +145,7 @@
 
   <footer class="anm-foot">
     <p class="anm-rights">&copy;ARAKI</p>
-    <p>あらき オフィシャルサイト：<a href="https://araki-axiz.com/" target="_blank" rel="noopener">araki-axiz.com</a><br>ムービック：<a href="https://www.movic.jp" target="_blank" rel="noopener">movic.jp</a></p>
+    <p>あらき PORTALサイト：<a href="https://araki-live.jp" target="_blank" rel="noopener">araki-live.jp</a><br>ムービック：<a href="https://www.movic.jp" target="_blank" rel="noopener">movic.jp</a></p>
     <p class="anm-letter"><a href="https://araki-live.jp/letter/" target="_blank" rel="noopener">デジタルお便りはこちら</a></p>
   </footer>
 

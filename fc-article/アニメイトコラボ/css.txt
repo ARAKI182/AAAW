@@ -52,6 +52,7 @@
 .anm-part+.anm-part{ margin-top:8px; }
 .anm-part-no{ flex:0 0 auto; font-size:13px; font-weight:600; color:#fff; background:var(--anm-teal); padding:3px 10px; border-radius:3px; white-space:nowrap; margin-top:1px; }
 .anm-part p{ margin:0; font-size:14px; line-height:1.6; }
+.anm-part small{ display:block; margin-top:.45rem; font-size:12px; line-height:1.7; color:var(--anm-sub); }
 
 .anm-btn{ display:inline-block; font-family:"Marcellus",serif; letter-spacing:.08em; font-size:14.5px; color:#fff; background:var(--anm-teal); text-decoration:none; padding:13px 30px; border-radius:2px; margin-top:6px; }
 .anm-btn:hover{ background:var(--anm-teal2); }
