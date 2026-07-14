@@ -103,10 +103,24 @@ if (imgModal) {
 /* ====== 全曲クロスフェード（収録曲の下） ====== */
 /* ★クロスフェード動画ができたら、ここにYouTubeのIDを入れるだけでボタンが出ます（例: 'AbCdEf12345'） */
 const CROSSFADE_ID = 'R2EFTxYirZI';
+/* ★配信リンク（linkco.re）。空にすればボタンごと非表示 */
+const STREAM_URL = 'https://linkco.re/sasYc7C8';
 const cfWrap = document.getElementById('crossfadeWrap');
 if (CROSSFADE_ID) {
-  cfWrap.innerHTML = `<button class="crossfade-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>全曲クロスフェードを見る</button>`;
-  cfWrap.querySelector('.crossfade-btn').addEventListener('click', () => openVideo(CROSSFADE_ID));
+  const cfBtn = document.createElement('button');
+  cfBtn.className = 'crossfade-btn';
+  cfBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>全曲クロスフェードを見る`;
+  cfBtn.addEventListener('click', () => openVideo(CROSSFADE_ID));
+  cfWrap.appendChild(cfBtn);
+}
+if (STREAM_URL) {
+  const stBtn = document.createElement('a');
+  stBtn.className = 'stream-btn';
+  stBtn.href = STREAM_URL;
+  stBtn.target = '_blank';
+  stBtn.rel = 'noopener';
+  stBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>各ストアで聴く`;
+  cfWrap.appendChild(stBtn);
 }
 
 /* ====== ハンバーガーメニュー ====== */

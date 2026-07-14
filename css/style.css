@@ -282,10 +282,13 @@ nav.pc a:hover::after{width:100%}
 .track-cred span{font-family:var(--font-sans);font-weight:300;font-size:.76rem;letter-spacing:.05em;color:var(--cream-dim)}
 .movie-badge{display:inline-flex;align-items:center;gap:.4em;flex-shrink:0;padding:.32rem .75rem;font-family:var(--font-en);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);background:rgba(67,208,236,.1);border:1px solid rgba(67,208,236,.42);border-radius:30px;cursor:pointer;transition:background .3s,color .3s,box-shadow .3s}
 .movie-badge:hover{background:rgba(67,208,236,.22);color:#fff;box-shadow:0 0 16px rgba(67,208,236,.3)}
-.crossfade-wrap{display:flex;justify-content:center;margin-top:2.2rem}
+.crossfade-wrap{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:2.2rem}
 .crossfade-btn{display:inline-flex;align-items:center;gap:.6em;padding:.85rem 2rem;font-family:var(--font-sans);font-weight:500;letter-spacing:.14em;font-size:.92rem;color:var(--cyan);background:rgba(67,208,236,.08);border:1px solid rgba(67,208,236,.45);border-radius:40px;cursor:pointer;transition:background .3s,color .3s,box-shadow .3s}
 .crossfade-btn:hover{background:rgba(67,208,236,.2);color:#fff;box-shadow:0 0 20px rgba(67,208,236,.3)}
 .crossfade-btn svg{width:12px;height:12px;fill:currentColor}
+.stream-btn{display:inline-flex;align-items:center;gap:.6em;padding:.85rem 2rem;font-family:var(--font-sans);font-weight:500;letter-spacing:.14em;font-size:.92rem;color:#0a262c;background:linear-gradient(135deg,var(--gold-lt),var(--gold));border:1px solid var(--gold-lt);border-radius:40px;text-decoration:none;transition:transform .3s,box-shadow .3s,filter .3s}
+.stream-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(231,207,142,.32);filter:brightness(1.06)}
+.stream-btn svg{width:15px;height:15px;fill:currentColor}
 .movie-badge svg{width:9px;height:9px;fill:currentColor}
 
 /* ---------- LIVE ---------- */
