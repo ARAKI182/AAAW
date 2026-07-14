@@ -94,7 +94,8 @@
         <tr><th>当選通知</th><td>2026年10月下旬〜11月上旬</td></tr>
       </tbody>
     </table>
-    <p class="anm-cap">※お申込受付には「CLUB animate」への登録が必要となります（登録は無料です）。<br>※事前予約開始から店頭発売日までにご注文の方も配布対象です。事前予約期間後は在庫でのご案内となります。<br>※詳細は後日発表いたします。</p>
+    <p class="anm-cap">※お申込受付には「CLUB animate」への登録が必要となります（登録は無料です）。<br>※事前予約開始から店頭発売日までにご注文の方も配布対象です。事前予約期間後は在庫でのご案内となります。</p>
+    <a class="anm-btn anm-ghost" href="https://www.animate-onlineshop.jp/contents/fair_event/detail.php?id=115938" target="_blank" rel="noopener">リリイベ詳細ページ &#8594;</a>
   </section>
 
   <section id="anm-shop" class="anm-sec">
