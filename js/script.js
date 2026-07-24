@@ -7,7 +7,7 @@
 const TRACKS = [
   {no:'01', ja:'モラトリアム・ディシジョン', video:'LYW-qOvpYWI', color:'#ff7a4d'},
   {no:'02', ja:'アノニマスヒーロー', video:'XCbkbXYIuiI', color:'#b9aee0'},
-  {no:'03', ja:'余白を透る', color:'#8fcfe6'},           /* 動画投稿予定 */
+  {no:'03', ja:'余白を透る', video:'ex1IH3xY8aY', color:'#8fcfe6'},
   {no:'04', ja:'BlackStar', color:'#6a78ff'},
   {no:'05', ja:'Dead-End Dance', video:'cXVxWTl76tk', color:'#f3608f'},
   {no:'06', ja:'Filter Bubble', color:'#b6d96a'},
